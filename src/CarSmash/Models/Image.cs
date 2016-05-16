@@ -10,6 +10,7 @@ using Microsoft.AspNet.Mvc;
 namespace CarSmash.Models
 {
     [Table("Images")]
+    [Serializable]
     public class Image
     {
         [Key]
