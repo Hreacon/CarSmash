@@ -1,0 +1,8 @@
+﻿.products {
+    .row{
+        background-color: red;
+        display: flex;
+        /*justify-content: flex-start;*/
+        flex-flow: row wrap;
+    }
+}

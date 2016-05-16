@@ -1,9 +1,24 @@
 ﻿@{
     var product = Model as CarSmash.Models.Product;
 }
+<div class="col s6 m4">
+    <a href="/Home/ProductDetails/@product.ProductId" class="productTile">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://cdn.shopify.com/s/files/1/0196/3764/products/mainmcm_small.png?v=1355741396" />
+                @*<img src="@product.Images.ElementAtOrDefault(0).Url">*@
+            </div>
+            <div class="card-content">
+                <span class="card-title">@product.Name</span>
 
-<a href="/Home/ProductDetails/@product.ProductId" class="productTile">
-    <img src="@product.Images.ElementAtOrDefault(0).Url" />
-    <h3>@product.Name</h3>
-    <span>@product.Price</span>
-</a>
+                <p>
+                    @product.Description
+                </p>
+                <span>$@product.Price</span>
+            </div>
+            <div class="card-action">
+            </div>
+        </div>
+    </a>
+</div>
+
