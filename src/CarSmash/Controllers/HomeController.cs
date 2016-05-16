@@ -8,6 +8,7 @@ using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Http.Internal;
 using Microsoft.AspNet.Mvc;
 using CarSmash.Models;
+using Microsoft.AspNet.Mvc.Filters;
 using Microsoft.Data.Entity;
 
 namespace CarSmash.Controllers
@@ -20,9 +21,14 @@ namespace CarSmash.Controllers
         public HomeController(ApplicationDbContext db)
         {
             _db = db;
-            
         }
-       
+
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            base.OnActionExecuting(context);
+            GetCart();
+        }
+
         public IActionResult Index()
         {
             if (!_db.Products.Any())
@@ -67,7 +73,6 @@ namespace CarSmash.Controllers
 
         public async Task<IActionResult> Products()
         {
-            GetCart();
             var products = await _db.Products.Include(m=>m.Images).ToListAsync();
             return View(products);
         }
@@ -84,7 +89,6 @@ namespace CarSmash.Controllers
 
         public IActionResult AddToCart(int id)
         {
-            GetCart();
             // TODO include images
             _cart.Add(GetProduct(id));
             SaveCart();
@@ -93,13 +97,12 @@ namespace CarSmash.Controllers
 
         public IActionResult RemoveFromCart(int id)
         {
-            GetCart();
             _cart.Remove(GetProduct(id));
+            SaveCart();
             return RedirectToAction("ViewCart");
         }
         public IActionResult ViewCart()
         {
-            GetCart();
             return View();
         }
 
