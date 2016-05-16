@@ -11,12 +11,10 @@ namespace CarSmash.Models
     public class ShoppingCart
     {
         public List<Product> Products { get; set; }
-        public List<int> Quantity { get; set; }
 
         public ShoppingCart()
         {
             Products = new List<Product>();
-            Quantity = new List<int>();
         }
 
         public bool Any() => Products.Any();
@@ -26,9 +24,9 @@ namespace CarSmash.Models
             get
             {
                 int total = 0;
-                foreach (int count in Quantity)
+                foreach (var product in Products)
                 {
-                    total = total + count;
+                    total = total + product.Quantity;
                 }
                 return total;
             }
@@ -36,14 +34,15 @@ namespace CarSmash.Models
 
         public void Add(Product item)
         {
-            if (Products.Contains(item))
+            int index = Products.IndexOf(item);
+            if (index >= 0)
             {
-                Quantity[Products.IndexOf(item)]++;
+                Products[index].Quantity++;
             }
             else
             {
+                item.Quantity = 1;
                 Products.Add(item);
-                Quantity.Add(1);
             }
         }
     }
