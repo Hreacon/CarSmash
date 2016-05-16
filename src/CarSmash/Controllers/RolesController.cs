@@ -6,9 +6,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
-using RealEstateGame.Models;
+using CarSmash.Models;
 
-namespace RealEstateGame.Controllers
+namespace CarSmash.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class RolesController : Controller
