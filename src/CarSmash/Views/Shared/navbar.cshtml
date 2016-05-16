@@ -2,11 +2,11 @@
     <nav>
         <div class="nav-wrapper">
             <a asp-controller="Home" asp-action="Index" class="brand-icon">CarSmash</a>
-            <ul class="right hide-on-med-and-down">
-                <li>@Html.ActionLink("Posts", "Index", "Posts")</li>
-                <li>@Html.ActionLink("Videos", "Index", "Videos")</li>
-                <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                @await Html.PartialAsync("_LoginPartial")
+            <ul class="right hide-on-small-and-down">
+                <li>@Html.ActionLink("Posts", "Posts", "Home")</li>
+                <li>@Html.ActionLink("Videos", "Videos", "Home")</li>
+                <li>@Html.ActionLink("Products", "Products", "Home")</li>
+                <li>@await Html.PartialAsync("_LoginPartial")</li>
             </ul>
         </div>
     </nav>

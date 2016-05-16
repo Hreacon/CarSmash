@@ -11,3 +11,6 @@
     font-size: small;
     opacity: .75; } }
 
+.productTile img {
+  width: 100px; }
+
