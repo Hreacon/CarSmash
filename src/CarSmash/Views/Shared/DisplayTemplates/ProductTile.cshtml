@@ -1,9 +1,9 @@
-﻿@{ 
+﻿@{
     var product = Model as CarSmash.Models.Product;
 }
 
 <a href="/Home/ProductDetails/@product.ProductId" class="productTile">
-    <img src="@product.Images.ElementAtOrDefault(0).Url"/>
+    <img src="@product.Images.ElementAtOrDefault(0).Url" />
     <h3>@product.Name</h3>
     <span>@product.Price</span>
 </a>
