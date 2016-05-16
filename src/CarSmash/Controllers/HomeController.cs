@@ -67,6 +67,11 @@ namespace CarSmash.Controllers
             return View(products);
         }
 
+        public IActionResult ProductDetails(int id)
+        {
+            return View("Details", _db.Products.FirstOrDefault(m=>m.ProductId == id));    
+        }
+
         public IActionResult Comments()
         {
             return View();
