@@ -11,9 +11,11 @@ namespace CarSmash.Models
     [Table("Comments")]
     public class Comment
     {
+        [Key]
         public int CommentId { get; set; }
-        public int userId { get; set; }
-        public virtual Post post { get; set; }
-        public string body { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
+        public virtual Post Post { get; set; }
+        public string Body { get; set; }
     }
 }
