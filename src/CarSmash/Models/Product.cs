@@ -20,5 +20,8 @@ namespace CarSmash.Models
         public double Price { get; set; }
         public virtual ICollection<Image> Images { get; set; }
 
+        public Product()
+        {
+        }
     }
 }

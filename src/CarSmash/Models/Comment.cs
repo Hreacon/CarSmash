@@ -15,5 +15,9 @@ namespace CarSmash.Models
         public int userId { get; set; }
         public virtual Post post { get; set; }
         public string body { get; set; }
+
+        public Comment()
+        {
+        }
     }
 }
