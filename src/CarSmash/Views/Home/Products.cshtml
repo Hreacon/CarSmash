@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using CarSmash.Models;
+
+<h2>Products</h2>
+<ul>
+    @foreach (var product in Model)
+    {
+
+   @Html.DisplayFor(m => product, "ProductTile")
+    }
+</ul>
+
