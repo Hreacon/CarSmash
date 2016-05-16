@@ -1,0 +1,8 @@
+﻿@{
+    var cart = ViewBag.Cart as ShoppingCart;
+}
+
+@foreach (var product in cart.Products)
+{
+    <p>@product.Name @product.Quantity <a href="/Home/RemoveFromCart/@product.ProductId">X</a></p>
+}
