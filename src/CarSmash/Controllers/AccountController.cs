@@ -108,7 +108,7 @@ namespace CarSmash.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_userManager.Users.Any())
+                if (!_userManager.Users.Any())
                 {
                     // there are no users. Create default admin account
                     // create the roles
