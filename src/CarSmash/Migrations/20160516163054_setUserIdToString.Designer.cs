@@ -8,9 +8,10 @@ using CarSmash.Models;
 namespace CarSmash.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160516163054_setUserIdToString")]
+    partial class setUserIdToString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -69,11 +70,11 @@ namespace CarSmash.Migrations
                     b.Property<int>("CommentId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Body");
+                    b.Property<string>("body");
 
-                    b.Property<int?>("PostPostId");
+                    b.Property<int?>("postPostId");
 
-                    b.Property<string>("UserId");
+                    b.Property<string>("userId");
 
                     b.HasKey("CommentId");
 
@@ -85,9 +86,9 @@ namespace CarSmash.Migrations
                     b.Property<int>("ImageId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("ProductProductId");
-
                     b.Property<string>("Url");
+
+                    b.Property<int?>("productProductId");
 
                     b.HasKey("ImageId");
 
@@ -115,7 +116,7 @@ namespace CarSmash.Migrations
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Desc");
 
                     b.Property<string>("Name");
 
@@ -212,14 +213,14 @@ namespace CarSmash.Migrations
                 {
                     b.HasOne("CarSmash.Models.Post")
                         .WithMany()
-                        .HasForeignKey("PostPostId");
+                        .HasForeignKey("postPostId");
                 });
 
             modelBuilder.Entity("CarSmash.Models.Image", b =>
                 {
                     b.HasOne("CarSmash.Models.Product")
                         .WithMany()
-                        .HasForeignKey("ProductProductId");
+                        .HasForeignKey("productProductId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
