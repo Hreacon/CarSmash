@@ -45,5 +45,10 @@ namespace CarSmash.Models
                 Products.Add(item);
             }
         }
+
+        public void Remove(Product getProduct)
+        {
+            Products.Remove(getProduct);
+        }
     }
 }
