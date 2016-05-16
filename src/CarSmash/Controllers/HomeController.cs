@@ -48,6 +48,13 @@ namespace CarSmash.Controllers
             return View(await _db.Products.ToListAsync());
         }
 
+
+        public IActionResult Details(int id)
+        {
+            var thisProduct = _db.Products.FirstOrDefault(p => p.ProductId == id);
+            return View(thisProduct);
+        }
+
         public IActionResult Comments()
         {
             return View();
