@@ -108,13 +108,13 @@ namespace CarSmash.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_userManager.Users.Any())
+                if (!_userManager.Users.Any())
                 {
                     // there are no users. Create default admin account
                     // create the roles
                     _context.Roles.Add(new IdentityRole("Admin"));
                     _context.SaveChanges();
-                    var admin = new ApplicationUser() {UserName = "Admin", Email = "01010010r@gmail.com"};
+                    var admin = new ApplicationUser() {UserName = "Admin@admin.com", Email = "Admin@admin.com"};
                     var success = await _userManager.CreateAsync(admin, "!23Qwer");
                     await _userManager.AddToRoleAsync(admin, "Admin");
 
