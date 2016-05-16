@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Give a user a role";
+    Layout = "_RoleLayout";
+}
+
+<h2>Give a user a point in life</h2>
+
+@using (Html.BeginForm("GetRoles", "Roles", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="message-success">@ViewBag.ResultMessage</div>
+
+    <p>
+        Username : @Html.DropDownList("Username", ViewBag.Users as SelectList, new { onchange="this.form.submit()" })
+    </p>
+
+    <input type="submit" value="Choose" />
+}
+
+@if (ViewBag.RolesForThisUser != null)
+{
+    var username = ViewBag.User.UserName;
+
+    <h3>Roles for @ViewBag.User.UserName </h3>
+    <ul>
+        @using (Html.BeginForm("DeleteFromUser", "Roles", FormMethod.Post))
+        {
+            <p>@Html.HiddenFor(m => username)</p>
+            foreach (var s in ViewBag.RolesForThisUser)
+            {
+                <li>@s.ToString() | <button onclick="this.form.submit()" value="@s.ToString()" name="RoleName">Delete</button></li>
+            }
+        }
+    </ul>
+    if (ViewBag.Roles.Count > 0)
+     {
+         <div >
+             @using (Html.BeginForm("AddToUser", "Roles", FormMethod.Post))
+             {
+                 <p>@Html.HiddenFor(m => username)</p>
+                 <p>Add Role: @Html.DropDownList("RoleName", new SelectList(ViewBag.Roles))</p>
+                 <input type="submit" value="Add Role"/>
+             }
+         </div>
+     }
+
+}
