@@ -91,6 +91,12 @@ namespace CarSmash.Controllers
             return RedirectToAction("Products");
         }
 
+        public IActionResult ViewCart()
+        {
+            GetCart();
+            return View();
+        }
+
         [NonAction]
         public void SaveCart()
         {
