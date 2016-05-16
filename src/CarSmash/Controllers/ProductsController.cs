@@ -4,9 +4,11 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using CarSmash.Models;
+using Microsoft.AspNet.Authorization;
 
 namespace CarSmash.Controllers
 {
+    [Authorize(Roles="Admin")]
     public class ProductsController : Controller
     {
         private ApplicationDbContext _context;

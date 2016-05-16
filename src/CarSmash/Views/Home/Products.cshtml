@@ -1,0 +1,8 @@
+﻿@{
+    var products = ViewBag.Products;
+}
+
+@foreach (var product in products)
+{
+    @Html.DisplayFor(m => product, "Product-Tile");
+}
