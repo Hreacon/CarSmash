@@ -12,16 +12,33 @@ namespace CarSmash.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext _db { get; set; }
+        private ApplicationDbContext _db { get; }
 
         public HomeController(ApplicationDbContext db)
         {
             _db = db;
         }
        
-            public IActionResult Index()
+        public IActionResult Index()
         {
-            
+            if (!_db.Products.Any())
+            {
+                // if no products create a test product
+                //TODO remove on deploy
+                _db.Images.Add(new Image()
+                {
+                    Url = "/images/products/nurburg.jpg"
+                });
+                _db.SaveChanges();
+                _db.Products.Add(new Product()
+                {
+                    Description = "Nurburgring Sticker",
+                    Images = _db.Images.ToList(),
+                    Name = "Nurburg Sticker",
+                    Price = 10.99
+                });
+                _db.SaveChanges();
+            }
             return View();
         }
 
@@ -46,8 +63,8 @@ namespace CarSmash.Controllers
 
         public async Task<IActionResult> Products()
         {
-
-            return View(await _db.Products.ToListAsync());
+            var products = await _db.Products.Include(m=>m.Images).ToListAsync();
+            return View(products);
         }
 
         public IActionResult Comments()
