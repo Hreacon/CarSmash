@@ -74,7 +74,7 @@ namespace CarSmash.Controllers
 
         public IActionResult ProductDetails(int id)
         {
-            return View("Details", _db.Products.FirstOrDefault(m=>m.ProductId == id));    
+            return View("Details", GetProduct(id));    
         }
 
         public IActionResult Comments()
@@ -86,11 +86,17 @@ namespace CarSmash.Controllers
         {
             GetCart();
             // TODO include images
-            _cart.Add(_db.Products.FirstOrDefault(m=>m.ProductId == id));
+            _cart.Add(GetProduct(id));
             SaveCart();
             return RedirectToAction("Products");
         }
 
+        public IActionResult RemoveFromCart(int id)
+        {
+            GetCart();
+            _cart.Remove(GetProduct(id));
+            return RedirectToAction("ViewCart");
+        }
         public IActionResult ViewCart()
         {
             GetCart();
@@ -127,6 +133,12 @@ namespace CarSmash.Controllers
                 _cart = new ShoppingCart();
             }
             ViewBag.Cart = _cart;
+        }
+
+        [NonAction]
+        public Product GetProduct(int id)
+        {
+            return _db.Products.Include(m => m.Images).FirstOrDefault(m => m.ProductId == id);
         }
     }
 }
