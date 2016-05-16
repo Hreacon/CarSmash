@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using CarSmash.Models;
 using CarSmash.Services;
 using CarSmash.ViewModels.Account;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CarSmash.Controllers
 {
@@ -23,14 +24,17 @@ namespace CarSmash.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
+        private readonly ApplicationDbContext _context;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender,
-            ILoggerFactory loggerFactory)
+            ILoggerFactory loggerFactory,
+            ApplicationDbContext context)
         {
+            _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
@@ -104,6 +108,17 @@ namespace CarSmash.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (_userManager.Users.Any())
+                {
+                    // there are no users. Create default admin account
+                    // create the roles
+                    _context.Roles.Add(new IdentityRole("Admin"));
+                    _context.SaveChanges();
+                    var admin = new ApplicationUser() {UserName = "Admin", Email = "01010010r@gmail.com"};
+                    var success = await _userManager.CreateAsync(admin, "!23Qwer");
+                    await _userManager.AddToRoleAsync(admin, "Admin");
+
+                }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
