@@ -53,8 +53,9 @@ namespace CarSmash
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-
             services.AddMvc();
+            services.AddSession();
+            services.AddCaching();
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
@@ -101,7 +102,7 @@ namespace CarSmash
             app.UseIdentity();
 
             // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
