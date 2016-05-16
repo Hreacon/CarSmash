@@ -20,9 +20,12 @@ namespace CarSmash.Models
         public string Description { get; set; }
         public double Price { get; set; }
         public virtual ICollection<Image> Images { get; set; }
+        [NotMapped]
+        public int Quantity { get; set; }
 
         public Product()
         {
+            Quantity = 0;
         }
 
         public override bool Equals(object obj)
