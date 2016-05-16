@@ -9,6 +9,7 @@ using Microsoft.AspNet.Mvc;
 
 namespace CarSmash.Models
 {
+    [Serializable]
     [Table ("Products")]
     public class Product
     {
@@ -22,6 +23,13 @@ namespace CarSmash.Models
 
         public Product()
         {
+        }
+
+        public override bool Equals(object obj)
+        {
+            Product other = obj as Product;
+            if (other?.ProductId == ProductId) return true;
+            return false;
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Http.Internal;
@@ -13,10 +15,12 @@ namespace CarSmash.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext _db { get; }
+        private ShoppingCart _cart { get; set; }
 
         public HomeController(ApplicationDbContext db)
         {
             _db = db;
+            
         }
        
         public IActionResult Index()
@@ -63,6 +67,7 @@ namespace CarSmash.Controllers
 
         public async Task<IActionResult> Products()
         {
+            GetCart();
             var products = await _db.Products.Include(m=>m.Images).ToListAsync();
             return View(products);
         }
@@ -72,16 +77,50 @@ namespace CarSmash.Controllers
             return View("Details", _db.Products.FirstOrDefault(m=>m.ProductId == id));    
         }
 
-
-        public IActionResult Details(int id)
-        {
-            var thisProduct = _db.Products.FirstOrDefault(p => p.ProductId == id);
-            return View(thisProduct);
-        }
-
         public IActionResult Comments()
         {
             return View();
+        }
+
+        public IActionResult AddToCart(int id)
+        {
+            GetCart();
+            // TODO include images
+            _cart.Add(_db.Products.FirstOrDefault(m=>m.ProductId == id));
+            SaveCart();
+            return RedirectToAction("Products");
+        }
+
+        [NonAction]
+        public void SaveCart()
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                new BinaryFormatter().Serialize(ms, _cart);
+                string cart = Convert.ToBase64String(ms.ToArray());
+                HttpContext.Session.SetString("ShoppingCart", cart);
+            }
+        }
+
+        [NonAction]
+        public void GetCart()
+        {
+            string cart = HttpContext.Session.GetString("ShoppingCart");
+            if (cart != null)
+            {
+                byte[] bytes = Convert.FromBase64String(cart);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    ms.Write(bytes, 0, bytes.Length);
+                    ms.Position = 0;
+                    _cart = new BinaryFormatter().Deserialize(ms) as ShoppingCart;
+                }
+            }
+            else
+            {
+                _cart = new ShoppingCart();
+            }
+            ViewBag.Cart = _cart;
         }
     }
 }
