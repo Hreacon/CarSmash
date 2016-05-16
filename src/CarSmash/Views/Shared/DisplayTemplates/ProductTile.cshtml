@@ -1,7 +1,9 @@
 ﻿@{ 
-    var product = Model;
+    var product = Model as CarSmash.Models.Product;
 }
 
-<li>@product.Name</li>
-<li>@product.Price</li>
-<li>@product.Images</li>
+<div class="productTile">
+    <img src="@product.Images.ElementAtOrDefault(0).Url"/>
+    <h3>@product.Name</h3>
+    <span>@product.Price</span>
+</div>
