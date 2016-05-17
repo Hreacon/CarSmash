@@ -10,6 +10,9 @@ using Microsoft.AspNet.Mvc;
 using CarSmash.Models;
 using Microsoft.AspNet.Mvc.Filters;
 using Microsoft.Data.Entity;
+using Newtonsoft.Json;
+using RestSharp;
+using RestSharp.Authenticators;
 
 namespace CarSmash.Controllers
 {
@@ -22,7 +25,7 @@ namespace CarSmash.Controllers
         {
             _db = db;
         }
-
+       
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);

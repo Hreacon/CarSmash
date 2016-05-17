@@ -3,14 +3,15 @@
 @{
     var products = Model;
 }
-
-<h2>Products</h2>
-<ul>
-    @foreach (var product in products)
-    {
-        @Html.DisplayFor(m => product, "ProductTile")
-    }
-</ul>
+<div class="container products">
+    <h2>Products</h2>
+    <div class="row">
+        @foreach (var product in products)
+        {
+            @Html.DisplayFor(m => product, "ProductTile")
+        }
+    </div>
+</div>
 
 <a href="/Home/ViewCart"><h3>Shopping Cart</h3></a>
 <p>@ViewBag.Cart.Count</p>

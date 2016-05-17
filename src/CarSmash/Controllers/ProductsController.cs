@@ -5,6 +5,10 @@ using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using CarSmash.Models;
 using Microsoft.AspNet.Authorization;
+using Microsoft.AspNet.Http;
+using System.IO;
+using System.Text.RegularExpressions;
+using CarSmash.ViewModels.Products;
 
 namespace CarSmash.Controllers
 {
@@ -50,15 +54,27 @@ namespace CarSmash.Controllers
         // POST: Products/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product product)
-        {
+        public async Task<IActionResult> Create(CreateProduct product)
+        {      
             if (ModelState.IsValid)
             {
-                _context.Products.Add(product);
+                //_context.Products.Add(product);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", product);
             }
             return View(product);
+        }
+
+        [NonAction]
+        public Product SavePhoto(Product product, IFormFile file)
+        {
+            Image newImage = new Image();
+            newImage.Url = Path.Combine("images/products", Regex.Replace(product.Name, " ", "") + product.ProductId + ".jpg");
+            
+            file.SaveAs(newImage.Url);
+            newImage.Url = "~/" + newImage.Url;
+            product.Images.Add(newImage);
+            return product;
         }
 
         // GET: Products/Edit/5
@@ -80,10 +96,15 @@ namespace CarSmash.Controllers
         // POST: Products/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Product product)
+        public async Task<IActionResult> Edit(Product product,  IFormFile file = null)
         {
+
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    product = this.SavePhoto(product, file);
+                }
                 _context.Update(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
