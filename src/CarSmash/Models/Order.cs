@@ -10,8 +10,9 @@ namespace CarSmash.Models
     {
         [Key]
         public int OrderId { get; set; }
-        public List<Product> Products { get; set; }
-        public int Total { get; set; }
+        public double Total { get; set; }
+        public string stripeChargeId { get; set; }
+        public string stripeResponseJson { get; set; }
         // Status is a quick way to check if billed and completed properly.
         // 0 is not completed
         // 1 is billed

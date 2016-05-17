@@ -24,6 +24,7 @@ namespace CarSmash.Controllers
         public HomeController(ApplicationDbContext db)
         {
             _db = db;
+            
         }
        
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -120,6 +121,78 @@ namespace CarSmash.Controllers
             }
         }
 
+        public IActionResult Test(string source)
+        {
+            // view shopping cart
+            // checkout button
+            // input payment stuff... leave fake options in so people dont put in card
+            //show success
+            // show our account balance somewhere
+            RestClient client = new RestClient("https://api.stripe.com/v1");
+            client.Authenticator = new HttpBasicAuthenticator("sk_test_VSvoTXCfc6VeAVz6YGdRBiKu:", "");
+            RestRequest request = new RestRequest("/charges");
+            request.AddParameter("amount", 10000);
+            request.AddParameter("currency", "usd");
+            request.Method = Method.POST;
+            request.AddParameter("source", source);
+
+            var response = client.Execute(request);
+
+            return Content(response.Content);
+        }
+
+        public IActionResult Checkout()
+        {
+       
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Checkout(FormCollection call)
+        {
+            var source = Request.Form["stripeToken"];
+
+            RestClient client = new RestClient("https://api.stripe.com/v1");
+            client.Authenticator = new HttpBasicAuthenticator("sk_test_VSvoTXCfc6VeAVz6YGdRBiKu:", "");
+            RestRequest request = new RestRequest("/charges");
+
+            request.AddParameter("amount", Math.Floor(_cart.Total * 100));
+
+            request.AddParameter("currency", "usd");
+            request.Method = Method.POST;
+            request.AddParameter("source", source);
+
+            var response = client.Execute(request);
+
+            if (response.Content.Contains("amount\": "))
+            {
+                //successful transaction
+                
+                var chargeId = response.Content.Substring(response.Content.IndexOf(":")+4, response.Content.IndexOf(",")-response.Content.IndexOf(":")-4);
+                _db.Orders.Add(new Order()
+                {
+                    Total = _cart.Total,
+                    Status = 1,
+                    stripeResponseJson = response.Content,
+                    stripeChargeId = chargeId,
+                    Message = "None"
+                });
+                _db.SaveChanges();
+                var order = _db.Orders.FirstOrDefault(m => m.stripeChargeId == chargeId);
+                foreach (var product in _cart.Products)
+                {
+                    _db.OrderProducts.Add(new OrderProduct()
+                    {
+                        OrderId = order.OrderId,
+                        ProductId = product.ProductId
+                    });
+                }
+                _db.SaveChanges();
+                return View("OrderSuccessful");
+            }
+            return View("Index");
+        }
+
         [NonAction]
         public void GetCart()
         {
@@ -146,5 +219,7 @@ namespace CarSmash.Controllers
         {
             return _db.Products.Include(m => m.Images).FirstOrDefault(m => m.ProductId == id);
         }
+
+
     }
 }

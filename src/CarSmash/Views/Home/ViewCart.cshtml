@@ -6,3 +6,10 @@
 {
     <p>@product.Name @product.Quantity <a href="/Home/RemoveFromCart/@product.ProductId">X</a></p>
 }
+@*string.format{0:C} formats string to money format. C stands for currency*@
+<p>Total: @string.Format("{0:C}", cart.Total)</p>
+@if (cart.Any())
+{
+    <a href="/Home/Checkout">Checkout</a>
+}
+    
