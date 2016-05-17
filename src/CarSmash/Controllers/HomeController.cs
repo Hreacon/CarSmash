@@ -1,15 +1,15 @@
-﻿using System;
+﻿using CarSmash.Models;
+using Microsoft.AspNet.Http;
+using Microsoft.AspNet.Http.Internal;
+using Microsoft.AspNet.Mvc;
+using Microsoft.AspNet.Mvc.Filters;
+using Microsoft.Data.Entity;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Http.Internal;
-using Microsoft.AspNet.Mvc;
-using CarSmash.Models;
-using Microsoft.AspNet.Mvc.Filters;
-using Microsoft.Data.Entity;
 
 namespace CarSmash.Controllers
 {
@@ -31,24 +31,24 @@ namespace CarSmash.Controllers
 
         public IActionResult Index()
         {
-            if (!_db.Products.Any())
-            {
-                // if no products create a test product
-                //TODO remove on deploy
-                _db.Images.Add(new Image()
-                {
-                    Url = "/images/products/nurburg.jpg"
-                });
-                _db.SaveChanges();
-                _db.Products.Add(new Product()
-                {
-                    Description = "Nurburgring Sticker",
-                    Images = _db.Images.ToList(),
-                    Name = "Nurburg Sticker",
-                    Price = 10.99
-                });
-                _db.SaveChanges();
-            }
+            //if (!_db.Products.Any())
+            //{
+            //    // if no products create a test product
+            //    //TODO remove on deploy
+            //    _db.Images.Add(new Image()
+            //    {
+            //        Url = "/images/products/nurburg.jpg"
+            //    });
+            //    _db.SaveChanges();
+            //    _db.Products.Add(new Product()
+            //    {
+            //        Description = "Nurburgring Sticker",
+            //        Images = _db.Images.ToList(),
+            //        Name = "Nurburg Sticker",
+            //        Price = 10.99
+            //    });
+            //    _db.SaveChanges();
+            //}
             return View();
         }
 
@@ -73,13 +73,13 @@ namespace CarSmash.Controllers
 
         public async Task<IActionResult> Products()
         {
-            var products = await _db.Products.Include(m=>m.Images).ToListAsync();
+            var products = await _db.Products.Include(m => m.Images).ToListAsync();
             return View(products);
         }
 
         public IActionResult ProductDetails(int id)
         {
-            return View("Details", GetProduct(id));    
+            return View("Details", GetProduct(id));
         }
 
         public IActionResult Comments()
@@ -101,6 +101,7 @@ namespace CarSmash.Controllers
             SaveCart();
             return RedirectToAction("ViewCart");
         }
+
         public IActionResult ViewCart()
         {
             return View();
