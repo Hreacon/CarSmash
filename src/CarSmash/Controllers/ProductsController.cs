@@ -111,26 +111,23 @@ namespace CarSmash.Controllers
             {
                 if (urls.Count > 0 && imageIds.Count > 0)
                 {
-                    
                     foreach (var image in product.Images)
                     {
-                    foreach (var id in imageIds)
+                        foreach (var id in imageIds)
                         {
                             if (id == image.ImageId)
                             {
-                                var customId = "image_" + image.ImageId;
+                                var customId = "image_" + image.ImageId;     
                             }
-                    }
-
+                        }
                     }
                     foreach (var url in urls)
                     {
-
                     }
                 }
                 _context.Update(product);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index");    
             }
             return View(product);
         }
