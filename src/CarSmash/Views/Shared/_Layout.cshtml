@@ -19,17 +19,15 @@
 </head>
 <body>
     @Html.Partial("navbar")
-
     <div class="container body-content">
         @RenderBody()
         <footer>
             <p>&copy; 2016 - CarSmash</p>
         </footer>
     </div>
-
     <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/materialize/dist/js/materialize.js"></script>
+        <script src="~/lib/jquery/dist/jquery.js" asp-append-version="false"></script>
+        <script src="~/lib/materialize/dist/js/materialize.js" asp-append-version="false"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
@@ -37,11 +35,12 @@
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery">
         </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"
+                asp-fallback-src="~/js/materialize.es5.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-
     @RenderSection("scripts", required: false)
 </body>
 </html>

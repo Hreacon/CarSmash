@@ -3,43 +3,41 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h2>Create</h2>
-<div class="row">
-    <form asp-action="Create" class="col s12">
-        <div class="row">
-            <h4>Product</h4>
-            <hr />
+<div class="container">
+    <h2>Create</h2>
+    <div class="row">
+        <h4>Product</h4>
+        <hr />
+        @*enctype required for for file uploads*@
+        <form asp-action="Create" asp-controller="Products" method="post" class="col s12" enctype="multipart/form-data">
             <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-            <div class="input-field col s12">
-                <label asp-for="Description"></label>
-                <input asp-for="Description" class="validate" />
-                <span asp-validation-for="Description" class="text-danger" />
+            <div class="row">
+                <div class="input-field col s12">
+                    <input asp-for="Description" type="text" class="validate" autofocus />
+                    <label for="Description"></label>
+                    <span asp-validation-for="Description" class="text-danger" />
+                </div>
+                <div class="input-field col s7">
+                    <input asp-for="Name" type="text" class="validate" />
+                    <label asp-for="Name"></label>
+                    <span asp-validation-for="Name" class="text-danger" />
+                </div>
+                <div class="input-field col s4">
+                    <input asp-for="Price" class="validate" type="number" />
+                    <label asp-for="Price"></label>
+                    <span asp-validation-for="Price" class="text-danger" />
+                </div>
+                <div class="input-field">
+                    <input type="file" name="files" multiple />
+                </div>
             </div>
-            <div class="input-field col s7">
-                <label asp-for="Name"></label>
-                <input asp-for="Name" class="validate" />
-                <span asp-validation-for="Name" class="text-danger" />
-            </div>
-            <div class="input-field col s4">
-                <label asp-for="Price"></label>
-                <input asp-for="Price" class="validate" />
-                <span asp-validation-for="Price" class="text-danger" />
-            </div>
-
-            <div class="input-field col s1">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+        <div class="input-field col s1">
+            <input type="submit" value="Create" class="btn btn-default" />
         </div>
-    </form>
-</div>
+        </form>
+    </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 </div>
-
-@section Scripts {
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-}

@@ -1,16 +1,16 @@
-﻿using System;
+﻿using Microsoft.AspNet.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Runtime.InteropServices;
-using Microsoft.AspNet.Mvc;
+using System.Threading.Tasks;
 
 namespace CarSmash.Models
 {
     [Serializable]
-    [Table ("Products")]
+    [Table("Products")]
     public class Product
     {
         [Key]
@@ -19,7 +19,8 @@ namespace CarSmash.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
-        public virtual ICollection<Image> Images { get; set; }
+        public virtual List<Image> Images { get; set; }
+
         [NotMapped]
         public int Quantity { get; set; }
 
