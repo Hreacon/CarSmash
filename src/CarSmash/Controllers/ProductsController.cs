@@ -94,7 +94,7 @@ namespace CarSmash.Controllers
                 return HttpNotFound();
             }
 
-            Product product = await _context.Products.SingleAsync(m => m.ProductId == id);
+            Product product = await _context.Products.Include(m => m.Images).SingleAsync(m => m.ProductId == id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -105,10 +105,29 @@ namespace CarSmash.Controllers
         // POST: Products/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Product product)
+        public async Task<IActionResult> Edit(Product product, ICollection<string> urls = null, ICollection<int> imageIds = null)
         {
             if (ModelState.IsValid)
             {
+                if (urls.Count > 0 && imageIds.Count > 0)
+                {
+                    
+                    foreach (var image in product.Images)
+                    {
+                    foreach (var id in imageIds)
+                        {
+                            if (id == image.ImageId)
+                            {
+                                var customId = "image_" + image.ImageId;
+                            }
+                    }
+
+                    }
+                    foreach (var url in urls)
+                    {
+
+                    }
+                }
                 _context.Update(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
