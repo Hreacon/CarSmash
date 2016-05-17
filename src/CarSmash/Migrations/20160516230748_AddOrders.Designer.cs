@@ -8,9 +8,10 @@ using CarSmash.Models;
 namespace CarSmash.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160516230748_AddOrders")]
+    partial class AddOrders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -103,25 +104,9 @@ namespace CarSmash.Migrations
 
                     b.Property<int>("Status");
 
-                    b.Property<double>("Total");
-
-                    b.Property<string>("stripeChargeId");
-
-                    b.Property<string>("stripeResponseJson");
+                    b.Property<int>("Total");
 
                     b.HasKey("OrderId");
-                });
-
-            modelBuilder.Entity("CarSmash.Models.OrderProduct", b =>
-                {
-                    b.Property<int>("OrderProductId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("OrderId");
-
-                    b.Property<int>("ProductId");
-
-                    b.HasKey("OrderProductId");
                 });
 
             modelBuilder.Entity("CarSmash.Models.Post", b =>
@@ -148,6 +133,8 @@ namespace CarSmash.Migrations
                     b.Property<string>("Description");
 
                     b.Property<string>("Name");
+
+                    b.Property<int?>("OrderOrderId");
 
                     b.Property<double>("Price");
 
@@ -250,6 +237,13 @@ namespace CarSmash.Migrations
                     b.HasOne("CarSmash.Models.Product")
                         .WithMany()
                         .HasForeignKey("ProductProductId");
+                });
+
+            modelBuilder.Entity("CarSmash.Models.Product", b =>
+                {
+                    b.HasOne("CarSmash.Models.Order")
+                        .WithMany()
+                        .HasForeignKey("OrderOrderId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>

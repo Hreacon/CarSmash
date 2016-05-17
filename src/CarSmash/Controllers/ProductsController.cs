@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using CarSmash.Models;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Hosting;
@@ -5,19 +6,21 @@ using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
-using Microsoft.Net.Http.Headers;
-using System.Collections.Generic;
+using CarSmash.Models;
+using Microsoft.AspNet.Authorization;
+using Microsoft.AspNet.Http;
 using System.IO;
-using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CarSmash.ViewModels.Products;
 
 namespace CarSmash.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
-        private ApplicationDbContext _context;
-        private IHostingEnvironment _environment;
+        private readonly ApplicationDbContext _context;
+        private readonly IHostingEnvironment _environment;
 
         public ProductsController(ApplicationDbContext context, IHostingEnvironment environment)
         {
@@ -107,6 +110,7 @@ namespace CarSmash.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Product product, ICollection<string> urls = null, ICollection<int> imageIds = null)
         {
+
             if (ModelState.IsValid)
             {
                 if (urls.Count > 0 && imageIds.Count > 0)

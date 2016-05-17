@@ -32,6 +32,19 @@ namespace CarSmash.Models
             }
         }
 
+        public double Total
+        {
+            get
+            {
+                double total = 0;
+                foreach (var product in Products)
+                {
+                    total = total + product.Price * product.Quantity;
+                }
+                return total;
+            }
+        }
+
         public void Add(Product item)
         {
             int index = Products.IndexOf(item);

@@ -38,3 +38,19 @@ body, html {
         width: 100px;
     }
 }
+
+.CartList {
+    ul{
+        width:90%;
+        display:flex;
+        list-style-type:none;
+        justify-content:space-between;
+        li{
+            display:inline-block;
+        }
+    }
+}
+
+.Title {
+    font-weight:bold;
+}
