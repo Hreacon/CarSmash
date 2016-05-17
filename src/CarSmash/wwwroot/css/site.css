@@ -30,3 +30,14 @@ body .body-content, html .body-content {
 .productTile img {
   width: 100px; }
 
+.CartList ul {
+  width: 90%;
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between; }
+  .CartList ul li {
+    display: inline-block; }
+
+.Title {
+  font-weight: bold; }
+

@@ -105,6 +105,28 @@ namespace CarSmash.Controllers
             SaveCart();
             return RedirectToAction("ViewCart");
         }
+
+        [HttpPost]
+        public IActionResult UpdateCart(FormCollection col)
+        {
+            string formFieldId = "quantity.";
+            foreach (var key in Request.Form.Keys)
+            {
+                if (key.Contains(formFieldId))
+                {
+                    foreach (var product in _cart.Products)
+                    {
+                        if (key == formFieldId + product.ProductId)
+                        {
+                            product.Quantity = int.Parse(Request.Form[key]);
+                        }
+                    }
+                }
+            }
+            SaveCart();
+            return RedirectToAction("ViewCart");
+        }
+
         public IActionResult ViewCart()
         {
             return View();

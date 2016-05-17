@@ -1,0 +1,26 @@
+﻿@{
+    var product = Model as Product;
+    var subtotal = product.Quantity*product.Price;
+    var quantMax = 10;
+}
+
+
+<div class="CartList">
+    <ul>
+        <li>
+            @product.Name
+        </li>
+        <li>
+            @product.Price
+        </li>
+        <li>
+            <input type="number" min="1" name="quantity.@product.ProductId" value="@product.Quantity"/>
+        </li>
+        <li>
+            @string.Format("{0:C}", subtotal)
+        </li>
+        <li>
+            <a href="/Home/RemoveFromCart/@product.ProductId">Remove</a>
+        </li>
+    </ul>
+</div>
