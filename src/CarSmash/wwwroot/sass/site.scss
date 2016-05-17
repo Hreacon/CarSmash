@@ -5,9 +5,18 @@
 @import "base/variables";
 
 body, html {
+    .brand-icon {
+        font-family: $fjalla;
+    }
+
     .body-content {
         height: 100%;
         width: 100%;
+        font-family: $ptsans;
+
+        h {
+            font-family: $fjalla;
+        }
     }
 }
 
@@ -26,7 +35,7 @@ body, html {
 
 .productTile {
     img {
-        width:100px;
+        width: 100px;
     }
 }
 
