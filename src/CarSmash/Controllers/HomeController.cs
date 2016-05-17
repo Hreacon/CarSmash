@@ -7,6 +7,9 @@ using Microsoft.AspNet.Http.Internal;
 using Microsoft.AspNet.Mvc;
 using CarSmash.Models;
 using Microsoft.Data.Entity;
+using Newtonsoft.Json;
+using RestSharp;
+using RestSharp.Authenticators;
 
 namespace CarSmash.Controllers
 {
@@ -82,6 +85,30 @@ namespace CarSmash.Controllers
         public IActionResult Comments()
         {
             return View();
+        }
+
+        public IActionResult Test()
+        {
+            RestClient client = new RestClient("https://api.stripe.com/v1");
+            client.Authenticator = new HttpBasicAuthenticator("sk_test_VSvoTXCfc6VeAVz6YGdRBiKu:", "");
+            RestRequest request = new RestRequest("/balance");
+            //request.AddParameter("amount", 100);
+            //request.AddParameter("currency", "usd");
+            //request.Method = Method.POST;
+            //Dictionary<string, string> card = new Dictionary<string, string>
+            //{
+            //    ["object"] = "card",
+            //    ["exp_month"] = "05",
+            //    ["exp_year"] = "2017",
+            //    ["number"] = "4000 0000 0000 0077",
+            //    ["cvc"] = "999"
+            //};
+            //var serialCard = JsonConvert.SerializeObject(card);
+            //request.AddParameter("source", serialCard);
+
+            var response = client.Execute(request);
+
+            return Content(response.Content);
         }
     }
 }
