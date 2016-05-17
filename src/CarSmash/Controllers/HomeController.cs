@@ -110,15 +110,21 @@ namespace CarSmash.Controllers
         public IActionResult UpdateCart(FormCollection col)
         {
             string formFieldId = "quantity.";
+            var products = new List<Product>();
+            products.AddRange(_cart.Products);
             foreach (var key in Request.Form.Keys)
             {
                 if (key.Contains(formFieldId))
                 {
-                    foreach (var product in _cart.Products)
+                    foreach (var product in products)
                     {
                         if (key == formFieldId + product.ProductId)
                         {
                             product.Quantity = int.Parse(Request.Form[key]);
+                            if (product.Quantity == 0)
+                            {
+                                _cart.Products.Remove(product);
+                            }
                         }
                     }
                 }
@@ -141,26 +147,6 @@ namespace CarSmash.Controllers
                 string cart = Convert.ToBase64String(ms.ToArray());
                 HttpContext.Session.SetString("ShoppingCart", cart);
             }
-        }
-
-        public IActionResult Test(string source)
-        {
-            // view shopping cart
-            // checkout button
-            // input payment stuff... leave fake options in so people dont put in card
-            //show success
-            // show our account balance somewhere
-            RestClient client = new RestClient("https://api.stripe.com/v1");
-            client.Authenticator = new HttpBasicAuthenticator("sk_test_VSvoTXCfc6VeAVz6YGdRBiKu:", "");
-            RestRequest request = new RestRequest("/charges");
-            request.AddParameter("amount", 10000);
-            request.AddParameter("currency", "usd");
-            request.Method = Method.POST;
-            request.AddParameter("source", source);
-
-            var response = client.Execute(request);
-
-            return Content(response.Content);
         }
 
         public IActionResult Checkout()
@@ -210,6 +196,8 @@ namespace CarSmash.Controllers
                     });
                 }
                 _db.SaveChanges();
+                _cart = new ShoppingCart();
+                SaveCart();
                 return View("OrderSuccessful");
             }
             return View("Index");

@@ -14,7 +14,7 @@
             @product.Price
         </li>
         <li>
-            <input type="number" min="1" name="quantity.@product.ProductId" value="@product.Quantity"/>
+            <input type="number" min="0" name="quantity.@product.ProductId" value="@product.Quantity"/>
         </li>
         <li>
             @string.Format("{0:C}", subtotal)
