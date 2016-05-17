@@ -3,40 +3,45 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<div class="container">
+    <div class="row">
+        <h2>Edit</h2>
+        <form asp-action="Edit" asp-controller="Products" class="col s12">
+            <div class="row">
+                <h4>Product</h4>
+                <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ProductId" />
+                <div class="input-field">
+                    <label asp-for="Description" class="col s12"></label>
+                    <input asp-for="Description" class="validate" type="text" />
+                    <span asp-validation-for="Description" class="text-danger" />
+                </div>
+                <div class="input-field">
+                    <label asp-for="Name" class="col s12"></label>
+                    <input asp-for="Name" class="validate" type="text" />
+                    <span asp-validation-for="Name" class="text-danger" />
+                </div>
+                <div class="input-field">
+                    <label asp-for="Price" class="col s12"></label>
+                    <input asp-for="Price" class="validate" type="number" />
+                    <span asp-validation-for="Price" class="text-danger" />
+                </div>
+                @foreach (var image in Model.Images)
+                {
+                    <div class="input-field">
+                        <label for="image.@image.ImageId">ImageUrl</label>
+                        <input type="text" name="image.@image.ImageId" value="@image.Url" />
+                    </div>
 
-<h2>Edit</h2>
+                }
+                <div class="input-field">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </form>
 
-<form asp-action="Edit">
-    <div class="form-horizontal">
-        <h4>Product</h4>
-        <hr />
-        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="ProductId" />
-        <div class="form-group">
-            <label asp-for="Description" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Name" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Price" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+        <div>
+            <a asp-action="Index">Back to List</a>
         </div>
         <div class="input-field">
             <div class="btn waves-effect waves-ripple">
@@ -48,14 +53,4 @@
             </div>
         </div>
     </div>
-</form>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-}
