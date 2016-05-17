@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using CarSmash.Models;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Hosting;
@@ -10,6 +11,7 @@ using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Http;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using CarSmash.ViewModels.Products;
 
 namespace CarSmash.Controllers
@@ -17,8 +19,8 @@ namespace CarSmash.Controllers
     [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
-        private ApplicationDbContext _context;
-        private IHostingEnvironment _environment;
+        private readonly ApplicationDbContext _context;
+        private readonly IHostingEnvironment _environment;
 
         public ProductsController(ApplicationDbContext context, IHostingEnvironment environment)
         {
