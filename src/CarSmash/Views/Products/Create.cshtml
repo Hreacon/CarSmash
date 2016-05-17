@@ -5,40 +5,34 @@
 }
 
 <h2>Create</h2>
-
-<form asp-action="Create">
-    <div class="form-horizontal">
-        <h4>Product</h4>
-        <hr />
-        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="Description" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Description" class="form-control" />
+<div class="row">
+    <form asp-action="Create" class="col s12">
+        <div class="row">
+            <h4>Product</h4>
+            <hr />
+            <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+            <div class="input-field col s12">
+                <label asp-for="Description"></label>
+                <input asp-for="Description" class="validate" />
                 <span asp-validation-for="Description" class="text-danger" />
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Name" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Name" class="form-control" />
+            <div class="input-field col s7">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="validate" />
                 <span asp-validation-for="Name" class="text-danger" />
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Price" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Price" class="form-control" />
+            <div class="input-field col s4">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" class="validate" />
                 <span asp-validation-for="Price" class="text-danger" />
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+
+            <div class="input-field col s1">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>
 
 <div>
     <a asp-action="Index">Back to List</a>
