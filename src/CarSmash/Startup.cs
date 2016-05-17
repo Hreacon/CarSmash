@@ -54,6 +54,7 @@ namespace CarSmash
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             services.AddMvc();
+            //add session and caching for owin nuget package
             services.AddSession();
             services.AddCaching();
 
@@ -102,7 +103,7 @@ namespace CarSmash
             app.UseIdentity();
 
             // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
-            app.UseSession();
+            app.UseSession(); // add session here ABOVE UseMVC for owin session nuget package
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
