@@ -144,5 +144,10 @@ namespace CarSmash.Controllers
         {
             return _db.Products.Include(m => m.Images).FirstOrDefault(m => m.ProductId == id);
         }
+
+        public IActionResult Videos()
+        {
+            return View();
+        }
     }
 }
