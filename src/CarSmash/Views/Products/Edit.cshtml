@@ -4,53 +4,53 @@
     ViewData["Title"] = "Edit";
 }
 <div class="container">
+    <h2>Edit</h2>
     <div class="row">
-        <h2>Edit</h2>
+       <h4>Product</h4>
+        <hr />
         <form asp-action="Edit" asp-controller="Products" class="col s12" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <h4>Product</h4>
                 <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="ProductId" />
+            <div class="row">
+
                 <div class="input-field">
-                    <label asp-for="Description" class="col s12"></label>
-                    <input asp-for="Description" class="validate" type="text" />
-                    <span asp-validation-for="Description" class="text-danger" />
+                    <input asp-for="Description" type="text" class="validate" autofocus/>
+                    <label asp-for="Description"></label>
+                    <span asp-validation-for="Description" class="text-danger"/>
                 </div>
+
                 <div class="input-field">
-                    <label asp-for="Name" class="col s12"></label>
                     <input asp-for="Name" class="validate" type="text" />
+                    <label asp-for="Name"></label>
                     <span asp-validation-for="Name" class="text-danger" />
                 </div>
+
                 <div class="input-field">
-                    <label asp-for="Price" class="col s12"></label>
                     <input asp-for="Price" class="validate" type="number" />
+                    <label asp-for="Price"></label>
                     <span asp-validation-for="Price" class="text-danger" />
                 </div>
+
+                <div class="input-field">
+                    <input type="file" name="files" multiple />
+                </div>
+
+            </div>
+
                 @foreach (var image in Model.Images)
                 {
                     <div class="input-field">
-                        <label for="image.@image.ImageId">ImageUrl</label>
+                        <label for="image.@image.ImageId">Edit ImageUrl</label>
                         <input type="text" name="image.@image.ImageId" value="@image.Url" />
                     </div>
-
-                }
-                <div class="input-field">
-                    <div class="btn waves-effect waves-ripple">
-                        <span>add photo(s)</span>
-                        <input type="file" name="files" multiple />
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" />
-                    </div>
-                </div>
+                }   
                 <div class="input-field">
                     <input type="submit" value="Save" class="btn btn-default" />
                 </div>
-            </div>
         </form>
+    </div>
 
         <div>
             <a asp-action="Index">Back to List</a>
         </div>
-    </div>
 </div>
