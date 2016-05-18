@@ -59,6 +59,8 @@ namespace CarSmash.Controllers
                 Logins = await _userManager.GetLoginsAsync(user),
                 BrowserRemembered = await _signInManager.IsTwoFactorClientRememberedAsync(user)
             };
+            if(_userManager.IsInRoleAsync(user, "Admin").Result) ViewBag.Admin = "true";
+            else ViewBag.Admin = "false";
             return View(model);
         }
 
