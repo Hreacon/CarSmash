@@ -10,27 +10,20 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
+using CarSmash.Services;
 using RestSharp;
 using RestSharp.Authenticators;
 
 namespace CarSmash.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : CarSmashController
     {
         private ApplicationDbContext _db { get; }
-        private ShoppingCart _cart { get; set; }
 
         public HomeController(ApplicationDbContext db)
         {
             _db = db;
             
-        }
-        // OnActionExecuting runs on after the constructor, before the action/route/method
-        public override void OnActionExecuting(ActionExecutingContext context)
-        {
-            base.OnActionExecuting(context);
-            // could not put this method in the constructor because HttpContext is not available in the constructor
-            GetCart();
         }
 
         public IActionResult Index(string ajax)
@@ -207,26 +200,7 @@ namespace CarSmash.Controllers
             return View("Index");
         }
 
-        [NonAction] // not a route
-        public void GetCart()
-        {
-            string cart = HttpContext.Session.GetString("ShoppingCart");
-            if (cart != null)
-            {
-                byte[] bytes = Convert.FromBase64String(cart);
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    ms.Write(bytes, 0, bytes.Length);
-                    ms.Position = 0;
-                    _cart = new BinaryFormatter().Deserialize(ms) as ShoppingCart;
-                }
-            }
-            else
-            {
-                _cart = new ShoppingCart();
-            }
-            ViewBag.Cart = _cart;
-        }
+        
 
         [NonAction]
         public Product GetProduct(int id)

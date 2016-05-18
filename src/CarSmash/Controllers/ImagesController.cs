@@ -3,10 +3,12 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using CarSmash.Models;
+using Microsoft.AspNet.Authorization;
 
 namespace CarSmash.Controllers
 {
-    public class ImagesController : Controller
+    [Authorize(Roles="Admin")]
+    public class ImagesController : CarSmashController
     {
         private ApplicationDbContext _context;
 

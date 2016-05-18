@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace CarSmash.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class ProductsController : Controller
+    public class ProductsController : CarSmashController
     {
         private readonly ApplicationDbContext _context;
         private readonly IHostingEnvironment _environment;

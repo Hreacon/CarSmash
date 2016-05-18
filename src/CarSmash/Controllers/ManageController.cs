@@ -14,7 +14,7 @@ using CarSmash.ViewModels.Manage;
 namespace CarSmash.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : CarSmashController
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
