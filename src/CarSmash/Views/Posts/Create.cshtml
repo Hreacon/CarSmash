@@ -3,49 +3,38 @@
 @{
     ViewData["Title"] = "Create";
 }
+<div class="container">
+    <div class="row">
+        <br />
 
-<h2>Create</h2>
+        <h2>Create</h2>
 
-<form asp-action="Create">
-    <div class="form-horizontal">
-        <h4>Post</h4>
-        <hr />
-        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="Body" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Body" class="form-control" />
-                <span asp-validation-for="Body" class="text-danger" />
+        <form asp-action="Create" asp-controller="PostsController" class="col s12">
+
+            <div class="row">
+                <h4>Post</h4>
+                <hr />
+                <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger">
+
+                </div>
+                <div class="input-field col s4">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="validate" />
+                    <span asp-validation-for="Title" class="text-danger" />
+                </div>
+                <div class="input-field col s4">
+                    <label asp-for="Body"></label>
+                    <textarea asp-for="Body" class="validate materialize-textarea"></textarea>
+                    <span asp-validation-for="Body" class="text-danger" />
+                </div>
+                <div class="input-field col s4">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PosterId" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PosterId" class="form-control" />
-                <span asp-validation-for="PosterId" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Title" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+        </form>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
         </div>
     </div>
-</form>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-}

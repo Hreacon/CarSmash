@@ -50,11 +50,13 @@ namespace CarSmash.Controllers
         // POST: Posts/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Post post)
+        public async Task<IActionResult> Create(Post post, ApplicationUser user)
         {
             if (ModelState.IsValid)
             {
+                post.UserId = user.Id;
                 _context.Posts.Add(post);
+                
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }

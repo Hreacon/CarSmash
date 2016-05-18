@@ -3,50 +3,38 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<div class="container">
+    <div class="row">
+        <br />
+        <h2>Edit</h2>
+        <form asp-action="Edit" asp-controller="Post" class="col s12" method="post">
+            <div class="form-horizontal">
+                <h4>Post</h4>
+                <hr />
+                <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="PostId" />
+                <div class="input-field col s4">
+                    <label asp-for="Title"></label>
 
-<h2>Edit</h2>
+                    <input asp-for="Title" class="validate" type="text" />
+                    <span asp-validation-for="Title" class="text-danger" />
+                </div>
+                <div class="input-field col s4">
+                    <label asp-for="Body"></label>
+                    <textarea class="materialize-textarea validate" asp-for="Body">
+                    </textarea>
+                    <span asp-validation-for="Body" class="text-danger" />
+                </div>
 
-<form asp-action="Edit">
-    <div class="form-horizontal">
-        <h4>Post</h4>
-        <hr />
-        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="PostId" />
-        <div class="form-group">
-            <label asp-for="Body" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Body" class="form-control" />
-                <span asp-validation-for="Body" class="text-danger" />
+                <div class="input-field col s4">
+
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PosterId" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PosterId" class="form-control" />
-                <span asp-validation-for="PosterId" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Title" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+        </form>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
         </div>
     </div>
-</form>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-}

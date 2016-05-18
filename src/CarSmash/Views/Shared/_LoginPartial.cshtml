@@ -1,18 +1,14 @@
-﻿
-@using System.Security.Claims
+﻿@using System.Security.Claims
 
 @if (User.IsSignedIn())
 {
     <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="center">
             <li>
-                <a asp-controller="Manage" asp-action="Index" title="Manage">Hello @User.GetUserName()!</a>
-            </li>     
+                <a asp-controller="Manage" asp-action="Index" title="Manage" class="user-name">Hello @User.GetUserName()!</a>
+            </li>
             <li>
-                <a asp-action="ViewCart" asp-controller="Home" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="View Shopping Cart"><i class="material-icons">shopping_cart</i></a>
-            </li>       
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
+                <button type="submit" class="btn waves-effect waves-light">Log off</button>
             </li>
         </ul>
     </form>

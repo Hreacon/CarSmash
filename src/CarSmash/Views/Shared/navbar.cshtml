@@ -1,14 +1,29 @@
-﻿
-<div class="navbar-fixed">
+﻿<div class="navbar-fixed">
+
     <nav>
-        <div class="nav-wrapper">
-            <a asp-controller="Home" asp-action="Index" class="brand-icon">CarSmash</a>
-            <ul class="right hide-on-small-and-down">
-                <li>@Html.ActionLink("Posts", "Posts", "Home")</li>
-                <li>@Html.ActionLink("Videos", "Videos", "Home")</li>
-                <li>@Html.ActionLink("Products", "Products", "Home")</li>                
-                <li>@await Html.PartialAsync("_LoginPartial")</li>
-            </ul>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a asp-controller="Home" asp-action="Index" class="brand-icon">CarSmash</a>
+                <a data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+
+                    <li><a asp-action="Index" asp-controller="Posts"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="View Posts">library_books</i></a></li>
+
+                    <li><a asp-action="Videos" asp-controller="Home"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="View Videos">video_library</i></a></li>
+
+                    <li><a asp-action="ViewCart" asp-controller="Home" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="View Shopping Cart"><i class="material-icons">shopping_cart</i></a></li>
+
+                    <li><a asp-action="Products" asp-controller="Home" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="View Products"><i class="material-icons">monetization_on</i></a></li>
+                    
+                    <li>@await Html.PartialAsync("_LoginPartial")</li>
+                </ul>
+                <ul class="side-nav center" id="mobile-demo">
+                    <li>@await Html.PartialAsync("_LoginPartial")</li>
+                    <li><a asp-action="Index" asp-controller="Posts"><i class="material-icons">library_books</i></a></li>
+                    <li><a asp-action="Videos" asp-controller="Home"><i class="material-icons">video_library</i></a></li>
+                    <li>@Html.ActionLink("Products", "Products", "Home")</li>
+                </ul>
+            </div>
         </div>
     </nav>
 </div>

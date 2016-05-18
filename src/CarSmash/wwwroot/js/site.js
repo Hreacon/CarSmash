@@ -119,6 +119,12 @@ $(document)
                 }
             });
         $('select').material_select();
+        $(".button-collapse").sideNav({
+            menuWidth: 250,
+            edge: 'right',
+            closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        });
+
     });
 
 //// 2. This code loads the IFrame Player API code asynchronously.

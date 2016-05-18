@@ -1,6 +1,21 @@
-﻿.nav-wrapper {
+﻿nav {
+    background-color: black;
+}
+
+.nav-wrapper {
     background-color: darken(darkgrey, 6);
-    
+    .user-name {
+            font-size: 1em;
+        }
+    .button-collapse {
+        padding-right: 10px;
+    }
+    .side-nav {
+        .user-name {
+            font-size: 1em;
+        }
+        background-color: darken(grey, 2);
+    }
 
     a {
         color: #84ffff;

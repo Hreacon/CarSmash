@@ -15,7 +15,7 @@ namespace CarSmash.Models
         [Key]
         public int PostId { get; set; }
         [ForeignKey("ApplicationUser")]
-        public int PosterId { get; set; }
+        public string UserId { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }

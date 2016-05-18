@@ -1,17 +1,18 @@
 ﻿@import "layout/index";
 @import "layout/navbar";
 @import "layout/products";
-
+@import "base/inputs";
 @import "base/variables";
 
 body, html {
     .nav-wrapper {
         font-family: $fjalla;
-    .brand-icon {
-        font-family: $fjalla;
-        font-size: 2.4em;
-        padding-left: 20px;
-    }
+
+        .brand-icon {
+            font-family: $fjalla;
+            font-size: 2.4em;
+            padding-left: 20px;
+        }
     }
 
     #body-content {
@@ -19,8 +20,9 @@ body, html {
         width: 100%;
         font-family: $ptsans;
         color: black;
-        background-color: darken(darkgrey, 6);
+        background-color: darken(lightgrey, 2);
         font-size: 1.4em;
+
         h1, h2, h3, h4, h5 {
             font-family: $fjalla;
         }

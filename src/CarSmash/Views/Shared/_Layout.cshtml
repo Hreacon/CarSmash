@@ -24,7 +24,9 @@
     @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
 </head>
 <body>
-    @Html.Partial("navbar")
+    <header>
+        @Html.Partial("navbar")
+    </header>
     <div id="body-content">
         <div class="container-fluid">
             @RenderBody()

@@ -3,8 +3,19 @@
   padding-left: 10px;
   padding-right: 10px; }
 
+nav {
+  background-color: black; }
+
 .nav-wrapper {
   background-color: #9a9a9a; }
+  .nav-wrapper .user-name {
+    font-size: 1em; }
+  .nav-wrapper .button-collapse {
+    padding-right: 10px; }
+  .nav-wrapper .side-nav {
+    background-color: #7b7b7b; }
+    .nav-wrapper .side-nav .user-name {
+      font-size: 1em; }
   .nav-wrapper a {
     color: #84ffff;
     text-shadow: 0.3px 0.5px 1px black;
@@ -23,6 +34,41 @@
 .products dt {
   font-weight: bold; }
 
+/* label color */
+.input-field label {
+  color: #000; }
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #000; }
+
+.input-field input[type=text] {
+  color: #000;
+  background-color: lightgray; }
+
+.input-field .materialize-textarea {
+  color: #000;
+  background-color: lightgray; }
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000; }
+
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000; }
+
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000; }
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #000; }
+
 body .nav-wrapper, html .nav-wrapper {
   font-family: "Fjalla One", sans serif; }
   body .nav-wrapper .brand-icon, html .nav-wrapper .brand-icon {
@@ -35,7 +81,7 @@ body #body-content, html #body-content {
   width: 100%;
   font-family: "PT Sans", sans-serif;
   color: black;
-  background-color: #9a9a9a;
+  background-color: #cecece;
   font-size: 1.4em; }
   body #body-content h1, body #body-content h2, body #body-content h3, body #body-content h4, body #body-content h5, html #body-content h1, html #body-content h2, html #body-content h3, html #body-content h4, html #body-content h5 {
     font-family: "Fjalla One", sans serif; }
