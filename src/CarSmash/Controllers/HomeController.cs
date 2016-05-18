@@ -10,13 +10,6 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Http.Internal;
-using Microsoft.AspNet.Mvc;
-using CarSmash.Models;
-using Microsoft.AspNet.Mvc.Filters;
-using Microsoft.Data.Entity;
-using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Authenticators;
 

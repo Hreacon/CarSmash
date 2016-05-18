@@ -12,6 +12,8 @@
 
 /wwwroot/css/site.css
 /wwwroot/css/site.min.css
+/wwwroot/css/materialize.css.*
+/src/CarSmash/wwwroot/lib/materialize/sass/materialize.css.map
 
 # Build results
 [Dd]ebug/

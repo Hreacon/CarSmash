@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <h2>Edit</h2>
-        <form asp-action="Edit" asp-controller="Products" class="col s12">
+        <form asp-action="Edit" asp-controller="Products" class="col s12" method="post" enctype="multipart/form-data">
             <div class="row">
                 <h4>Product</h4>
                 <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
@@ -37,20 +37,20 @@
                 <div class="input-field">
                     <input type="submit" value="Save" class="btn btn-default" />
                 </div>
+                <div class="input-field">
+                    <div class="btn waves-effect waves-ripple">
+                        <span>add photo(s)</span>
+                        <input type="file" name="files" multiple />
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" />
+                    </div>
+                </div>
             </div>
         </form>
 
         <div>
             <a asp-action="Index">Back to List</a>
-        </div>
-        <div class="input-field">
-            <div class="btn waves-effect waves-ripple">
-                <span>add photo</span>
-                <input type="file" name="file" />
-            </div>
-            <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" />
-            </div>
         </div>
     </div>
 </div>
