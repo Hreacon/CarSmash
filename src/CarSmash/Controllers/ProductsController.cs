@@ -13,6 +13,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using CarSmash.ViewModels.Products;
+using Microsoft.Net.Http.Headers;
 
 namespace CarSmash.Controllers
 {
@@ -115,7 +116,7 @@ namespace CarSmash.Controllers
             {
                 if (file != null)
                 {
-                    product = this.SavePhoto(product, file);
+                    //product = this.SavePhoto(product, file);
                 }
                 _context.Update(product);
                 await _context.SaveChangesAsync();
