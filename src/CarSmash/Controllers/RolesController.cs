@@ -11,7 +11,7 @@ using CarSmash.Models;
 namespace CarSmash.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class RolesController : Controller
+    public class RolesController : CarSmashController
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;

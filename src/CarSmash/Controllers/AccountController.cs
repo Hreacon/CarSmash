@@ -17,7 +17,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace CarSmash.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : CarSmashController
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;

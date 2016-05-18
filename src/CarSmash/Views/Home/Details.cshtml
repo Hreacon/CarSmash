@@ -1,7 +1,18 @@
 ﻿@{
-    var product = Model;
+    var product = Model as Product;
 }
 
-<h2>@product.Name</h2>
-<li>@product.Price</li>
-<li>@product.Description</li>   
+<div class="product-images">
+    <div class="product-display-image">
+        <img src="@product.Images.ElementAt(0).Url"/>
+    </div>
+    <div class="product-image-list">
+        @foreach (var image in @product.Images)
+        {
+            <img src="@image.Url"/>
+        }
+    </div>
+</div>
+<div class="product-header">
+    <p>@product.Name</p>
+</div>

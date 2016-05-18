@@ -4,7 +4,11 @@
 @import "base/inputs";
 @import "base/variables";
 
-body, html {
+
+html, body {
+    display:flex;
+    flex-direction:column;
+    min-height:100%;
     .nav-wrapper {
         font-family: $fjalla;
 
@@ -14,22 +18,29 @@ body, html {
             padding-left: 20px;
         }
     }
+    * {
+        flex-shrink:0;
+    }
 
     .body-content {
         height: 100%;
         width: 100%;
         font-family: $ptsans;
         color: black;
-        background-image: url(../images/rx7.png);
-        background-color: lighten(lightgrey, 2);
+        background-image: url(../images/smooth2.gif);
+        background-attachment:fixed;
+        background-repeat:no-repeat;
+        background-position:center;
+        background-size:cover;
+        padding-bottom:1000px;
+        overflow:hidden;
+        //background-color: lighten(lightgrey, 2);
         font-size: 1.4em;
-        background-size: contain;
         h1, h2, h3, h4, h5 {
             font-family: $fjalla;
         }
         .container {
             background-color: lighten(lightgrey, 2);
-
         }
     }
 }
@@ -69,3 +80,25 @@ body, html {
 .Title {
     font-weight: bold;
 }
+
+.product-images {
+    width:30%;
+    .product-display-image {
+        img {
+            width:100%;
+        }
+    }
+    .product-image-list {
+        img {
+            width:100px;
+        }
+    }
+}
+
+.product-header {
+    font-size:2em;
+    font-weight:bold;
+}
+
+
+

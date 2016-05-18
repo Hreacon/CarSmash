@@ -9,7 +9,7 @@ using Microsoft.AspNet.Authorization;
 namespace CarSmash.Controllers
 {
     [Authorize(Roles="Admin")]
-    public class PostsController : Controller
+    public class PostsController : CarSmashController
     {
         private ApplicationDbContext _context;
 

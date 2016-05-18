@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace CarSmash.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class ProductsController : Controller
+    public class ProductsController : CarSmashController
     {
         private readonly ApplicationDbContext _context;
         private readonly IHostingEnvironment _environment;
@@ -106,13 +106,13 @@ namespace CarSmash.Controllers
         // POST: Products/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Product product)
+        public async Task<IActionResult> Edit(Product product, ICollection<IFormFile> files = null)
         {            
             if (ModelState.IsValid)
             {
                 _context.Update(product);
                 await _context.SaveChangesAsync();
-                product = await _context.Products.Include(p => p.Images).FirstOrDefaultAsync(p=>p == product);
+                product = await _context.Products.Include(p => p.Images).FirstOrDefaultAsync(p=>p.ProductId == product.ProductId);
                 string formFieldId = "image.";
 
                 foreach (var key in Request.Form.Keys)
