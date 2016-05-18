@@ -3,7 +3,7 @@ function ajax(href, target) {
     // scalable ajax function. Use html attributes to get the target. Turn everything into an ajax call with a class and a data-target.
     // Also "breakproof". Site works with refreshing and even if there's no javascript.
     console.log("ajax");
-    window.history.pushState('RealEstateGame', 'RealEstateGame', href);
+    window.history.pushState('Car Smash', 'Car Smash', href);
     var tag = '';
     if (href.includes("#")) {
         tag = href.substring(href.indexOf("#"));
@@ -14,7 +14,6 @@ function ajax(href, target) {
     } else {
         href = href + "?ajax=true";
     }
-
     $.ajax({
         type: 'GET',
         url: href,
@@ -39,18 +38,16 @@ function ajaxPost(form, target) {
     });
 }
 function ajaxReturn(target, result, tag) {
-    console.log("post success");
-    if (result.trim().substr(0, 1) == "<") {
-        $(target).html(result);
-        updatePlayer();
-        ajaxInit();
-        if (tag.length > 1 && tag != "no") {
-            console.log('scroll');
-            $(window).scrollTop($(tag).offset().top - 100);
-        } else if (tag != "no") {
-            $(window).scrollTop(0);
-        }
-    } else message(result);
+    console.log("ajax success");
+    $(target).html(result);
+    console.log(result);
+    ajaxInit();
+    if (tag.length > 1 && tag != "no") {
+        console.log('scroll');
+        $(window).scrollTop($(tag).offset().top - 100);
+    } else if (tag != "no") {
+        $(window).scrollTop(0);
+    }
 }
 
 function ajaxInit() {
