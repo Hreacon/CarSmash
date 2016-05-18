@@ -27,13 +27,13 @@
     <header>
         @Html.Partial("navbar")
     </header>
-    <div id="body-content">
-    @Html.Partial("navbar")
-    <div class="body-content" id="content">
-        <div class="container-fluid">
-            @RenderBody()
+    <main>
+        <div class="body-content" id="content">
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
         </div>
-    </div>
+    </main>
     <footer>
         <p>&copy; 2016 - CarSmash</p>
     </footer>
