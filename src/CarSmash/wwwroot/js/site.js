@@ -40,6 +40,7 @@ function ajaxPost(form, target) {
 function ajaxReturn(target, result, tag) {
     console.log("ajax success");
     $(target).html(result);
+    console.log(result);
     ajaxInit();
     if (tag.length > 1 && tag != "no") {
         console.log('scroll');
