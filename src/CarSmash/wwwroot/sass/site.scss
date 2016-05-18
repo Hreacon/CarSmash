@@ -13,7 +13,9 @@ body, html {
         height: 100%;
         width: 100%;
         font-family: $ptsans;
-
+        background-color: $primary-bg-color;
+        color: $primary-color;
+        
         h {
             font-family: $fjalla;
         }

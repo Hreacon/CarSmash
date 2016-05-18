@@ -20,7 +20,9 @@ body .brand-icon, html .brand-icon {
 body .body-content, html .body-content {
   height: 100%;
   width: 100%;
-  font-family: "PT Sans", sans-serif; }
+  font-family: "PT Sans", sans-serif;
+  background-color: color("grey", "darken-4");
+  color: color("grey", "lighten-5"); }
   body .body-content h, html .body-content h {
     font-family: "Fjalla One", sans serif; }
 
@@ -35,4 +37,15 @@ body .body-content, html .body-content {
 
 .productTile img {
   width: 100px; }
+
+.CartList ul {
+  width: 90%;
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between; }
+  .CartList ul li {
+    display: inline-block; }
+
+.Title {
+  font-weight: bold; }
 
