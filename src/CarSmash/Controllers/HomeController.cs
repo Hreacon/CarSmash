@@ -32,14 +32,15 @@ namespace CarSmash.Controllers
             _db = db;
             
         }
-
+        // OnActionExecuting runs on after the constructor, before the action/route/method
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);
+            // could not put this method in the constructor because HttpContext is not available in the constructor
             GetCart();
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string ajax)
         {
             //if (!_db.Products.Any())
             //{
@@ -59,6 +60,7 @@ namespace CarSmash.Controllers
             //    });
             //    _db.SaveChanges();
             //}
+            if(ajax == "true") return PartialView();
             return View();
         }
 
@@ -68,7 +70,7 @@ namespace CarSmash.Controllers
 
             return View();
         }
-
+        
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
@@ -81,9 +83,10 @@ namespace CarSmash.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Products()
+        public async Task<IActionResult> Products(string ajax)
         {
             var products = await _db.Products.Include(m => m.Images).ToListAsync();
+            if (ajax == "true") return PartialView("Products", products);
             return View(products);
         }
 
@@ -97,19 +100,20 @@ namespace CarSmash.Controllers
             return View();
         }
 
-        public IActionResult AddToCart(int id)
+        public IActionResult AddToCart(int id, string ajax)
         {
             // TODO include images
             _cart.Add(GetProduct(id));
             SaveCart();
-            return RedirectToAction("Products");
+            return RedirectToAction("Products", new {ajax = ajax});
         }
 
-        public IActionResult RemoveFromCart(int id)
+        public IActionResult RemoveFromCart(int id, string ajax)
         {
             _cart.Remove(GetProduct(id));
             SaveCart();
-            return RedirectToAction("ViewCart");
+            //for redirecttoaction make new generic object and pass it in 
+            return RedirectToAction("ViewCart", new { ajax = ajax});
         }
 
         [HttpPost]
@@ -139,8 +143,9 @@ namespace CarSmash.Controllers
             return RedirectToAction("ViewCart");
         }
 
-        public IActionResult ViewCart()
+        public IActionResult ViewCart(string ajax)
         {
+            if (ajax == "true") return PartialView("ViewCart");
             return View();
         }
 
@@ -155,9 +160,9 @@ namespace CarSmash.Controllers
             }
         }
 
-        public IActionResult Checkout()
+        public IActionResult Checkout(string ajax)
         {
-       
+            if (ajax == "true") return PartialView("Checkout");
             return View();
         }
 
@@ -209,7 +214,7 @@ namespace CarSmash.Controllers
             return View("Index");
         }
 
-        [NonAction]
+        [NonAction] // not a route
         public void GetCart()
         {
             string cart = HttpContext.Session.GetString("ShoppingCart");
@@ -236,8 +241,10 @@ namespace CarSmash.Controllers
             return _db.Products.Include(m => m.Images).FirstOrDefault(m => m.ProductId == id);
         }
 
-        public IActionResult Videos()
+        public IActionResult Videos(string ajax)
         {
+            //partial view returns view without _layout
+            if (ajax == "true") return PartialView("Videos");
             return View();
         }
     }

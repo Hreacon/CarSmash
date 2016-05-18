@@ -13,6 +13,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using CarSmash.ViewModels.Products;
+using Microsoft.Net.Http.Headers;
 
 namespace CarSmash.Controllers
 {

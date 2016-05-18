@@ -8,7 +8,7 @@
                 <a asp-controller="Manage" asp-action="Index" title="Manage">Hello @User.GetUserName()!</a>
             </li>
             <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link" class="ajax" data-target="#content">Log off</button>
             </li>
         </ul>
     </form>
@@ -16,7 +16,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li><a asp-controller="Account" asp-action="Register">Register</a></li>
-        <li><a asp-controller="Account" asp-action="Login">Log in</a></li>
+        <li><a asp-controller="Account" asp-action="Register" class="ajax" data-target="#content">Register </a></li>
+        <li><a asp-controller="Account" asp-action="Login" class="ajax" data-target="#content">Log in</a></li>
     </ul>
 }
