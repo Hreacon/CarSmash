@@ -46,9 +46,10 @@ namespace CarSmash.Controllers
         // GET: /Account/Login
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Login(string returnUrl = null)
+        public IActionResult Login(string ajax, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+            if (ajax == "true") return PartialView();
             return View();
         }
 
@@ -94,8 +95,9 @@ namespace CarSmash.Controllers
         // GET: /Account/Register
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Register()
+        public IActionResult Register(string ajax)
         {
+            if (ajax == "true") return PartialView();
             return View();
         }
 
@@ -104,7 +106,7 @@ namespace CarSmash.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(RegisterViewModel model, string ajax)
         {
             if (ModelState.IsValid)
             {
@@ -131,7 +133,7 @@ namespace CarSmash.Controllers
                     //    "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
-                    return RedirectToAction(nameof(HomeController.Index), "Home");
+                    return RedirectToAction(nameof(HomeController.Index), "Home", new {ajax = Request.Form["ajax"]} );
                 }
                 AddErrors(result);
             }

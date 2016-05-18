@@ -1,19 +1,16 @@
-using System.Collections.Generic;
 using CarSmash.Models;
+using CarSmash.ViewModels.Products;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Mvc;
-using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
-using CarSmash.Models;
-using Microsoft.AspNet.Authorization;
-using Microsoft.AspNet.Http;
+using Microsoft.Net.Http.Headers;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using CarSmash.ViewModels.Products;
-using Microsoft.Net.Http.Headers;
 
 namespace CarSmash.Controllers
 {
@@ -25,14 +22,14 @@ namespace CarSmash.Controllers
 
         public ProductsController(ApplicationDbContext context, IHostingEnvironment environment)
         {
-            _context = context;    
+            _context = context;
             _environment = environment;
         }
 
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Products.ToListAsync());
+            return View(await _context.Products.Include(p=>p.Images).ToListAsync());
         }
 
         // GET: Products/Details/5
@@ -86,7 +83,7 @@ namespace CarSmash.Controllers
                 _context.Products.Add(product);
                 await _context.SaveChangesAsync();
                 return View("Details", product);
-            }
+            } 
             return View();
         }
 
@@ -98,7 +95,7 @@ namespace CarSmash.Controllers
                 return HttpNotFound();
             }
 
-            Product product = await _context.Products.SingleAsync(m => m.ProductId == id);
+            Product product = await _context.Products.Include(i => i.Images).SingleAsync(p => p.ProductId == id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -109,15 +106,30 @@ namespace CarSmash.Controllers
         // POST: Products/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Product product,  IFormFile file = null)
+        public async Task<IActionResult> Edit(Product product)
         {
-
+            product.Images = await _context.Images.Include(i=>i.Product).Where(i=>i.Product == product).ToListAsync();
             if (ModelState.IsValid)
             {
-                if (file != null)
+                string formFieldId = "image.";
+
+                foreach (var key in Request.Form.Keys)
                 {
-                    //product = this.SavePhoto(product, file);
+                    if (key.Contains(formFieldId))
+                    {
+                        var imageId = int.Parse(key.Substring(6));
+
+                        foreach (var image in product.Images)
+                        {
+                            if (image.ImageId == imageId)
+                            {
+                                image.Url = Request.Form[key];
+                                _context.Update(image);
+                            }
+                        }
+                    }
                 }
+
                 _context.Update(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");

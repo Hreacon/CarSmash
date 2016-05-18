@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Runtime.InteropServices;
-using Microsoft.AspNet.Mvc;
+using System.Threading.Tasks;
 
 namespace CarSmash.Models
 {
@@ -17,10 +17,13 @@ namespace CarSmash.Models
         public int ImageId { get; set; }
 
         public string Url { get; set; }
+
         public virtual Product Product { get; set; }
 
         public Image()
         {
+
         }
+        
     }
 }

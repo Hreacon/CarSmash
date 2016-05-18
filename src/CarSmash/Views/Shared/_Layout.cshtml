@@ -4,12 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CarSmash</title>
-    <link href='https://fonts.googleapis.com/css?family=Fjalla+One|PT+Sans' rel='stylesheet' type='text/css'>
+
     <environment names="Development">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+              rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Fjalla+One|PT+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="~/lib/materialize/dist/css/materialize.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment names="Staging,Production">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+              rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Fjalla+One|PT+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css"
               asp-fallback-href="~/lib/materialize/dist/css/materialize.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
@@ -19,12 +25,15 @@
 </head>
 <body>
     @Html.Partial("navbar")
-    <div class="container body-content">
-        @RenderBody()
-        <footer>
-            <p>&copy; 2016 - CarSmash</p>
-        </footer>
+    <div id="body-content">
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
     </div>
+    <footer>
+        <p>&copy; 2016 - CarSmash</p>
+    </footer>
+
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js" asp-append-version="false"></script>
         <script src="~/lib/materialize/dist/js/materialize.js" asp-append-version="false"></script>

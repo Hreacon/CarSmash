@@ -29,6 +29,6 @@
 <p>Total: @string.Format("{0:C}", cart.Total)</p>
 @if (cart.Any())
 {
-    <a href="/Home/Checkout">Checkout</a>
+    <a href="/Home/Checkout" class="ajax" data-target="#content">Checkout</a>
 }
     
