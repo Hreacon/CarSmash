@@ -8,7 +8,7 @@ using CarSmash.Models;
 namespace CarSmash.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160517194709_Jackson2")]
+    [Migration("20160518052904_Jackson2")]
     partial class Jackson2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -93,6 +93,36 @@ namespace CarSmash.Migrations
                     b.HasKey("ImageId");
 
                     b.HasAnnotation("Relational:TableName", "Images");
+                });
+
+            modelBuilder.Entity("CarSmash.Models.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Message");
+
+                    b.Property<int>("Status");
+
+                    b.Property<double>("Total");
+
+                    b.Property<string>("stripeChargeId");
+
+                    b.Property<string>("stripeResponseJson");
+
+                    b.HasKey("OrderId");
+                });
+
+            modelBuilder.Entity("CarSmash.Models.OrderProduct", b =>
+                {
+                    b.Property<int>("OrderProductId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("OrderId");
+
+                    b.Property<int>("ProductId");
+
+                    b.HasKey("OrderProductId");
                 });
 
             modelBuilder.Entity("CarSmash.Models.Post", b =>
