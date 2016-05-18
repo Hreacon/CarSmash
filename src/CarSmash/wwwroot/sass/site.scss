@@ -15,16 +15,21 @@ body, html {
         }
     }
 
-    #body-content {
+    .body-content {
         height: 100%;
         width: 100%;
         font-family: $ptsans;
         color: black;
-        background-color: darken(lightgrey, 2);
+        background-image: url(../images/rx7.png);
+        background-color: lighten(lightgrey, 2);
         font-size: 1.4em;
-
+        background-size: contain;
         h1, h2, h3, h4, h5 {
             font-family: $fjalla;
+        }
+        .container {
+            background-color: lighten(lightgrey, 2);
+
         }
     }
 }

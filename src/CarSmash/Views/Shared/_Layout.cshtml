@@ -30,13 +30,15 @@
     <main>
         <div class="body-content" id="content">
             <div class="container-fluid">
-                @RenderBody()
+                <div class="container">
+                    @RenderBody()
+                </div>
             </div>
         </div>
     </main>
-    <footer>
+    @*<footer>
         <p>&copy; 2016 - CarSmash</p>
-    </footer>
+    </footer>*@
 
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js" asp-append-version="false"></script>
