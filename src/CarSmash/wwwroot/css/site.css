@@ -109,3 +109,15 @@ body #body-content, html #body-content {
 .Title {
   font-weight: bold; }
 
+.product-images {
+  float: left;
+  width: 30%; }
+  .product-images .product-display-image img {
+    width: 100%; }
+  .product-images .product-image-list img {
+    width: 100px; }
+
+.product-header {
+  font-size: 2em;
+  font-weight: bold; }
+

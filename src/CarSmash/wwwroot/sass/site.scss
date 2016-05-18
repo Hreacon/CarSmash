@@ -64,3 +64,23 @@ body, html {
 .Title {
     font-weight: bold;
 }
+
+.product-images {
+    float:left;
+    width:30%;
+    .product-display-image {
+        img {
+            width:100%;
+        }
+    }
+    .product-image-list {
+        img {
+            width:100px;
+        }
+    }
+}
+
+.product-header {
+    font-size:2em;
+    font-weight:bold;
+}
