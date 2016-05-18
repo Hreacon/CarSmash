@@ -10,5 +10,5 @@
   {
     "outputFile": "wwwroot/css/materialize.css",
     "inputFile": "wwwroot/lib/materialize/sass/materialize.scss"
-  }
+  } 
 ]

@@ -107,17 +107,19 @@ namespace CarSmash.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Product product)
-        {
-            product.Images = await _context.Images.Include(i=>i.Product).Where(i=>i.Product == product).ToListAsync();
+        {            
             if (ModelState.IsValid)
             {
+                _context.Update(product);
+                await _context.SaveChangesAsync();
+                product = await _context.Products.Include(p => p.Images).FirstOrDefaultAsync(p=>p == product);
                 string formFieldId = "image.";
 
                 foreach (var key in Request.Form.Keys)
                 {
                     if (key.Contains(formFieldId))
                     {
-                        var imageId = int.Parse(key.Substring(6));
+                        var imageId = int.Parse(key.Substring(formFieldId.Length));
 
                         foreach (var image in product.Images)
                         {
@@ -129,9 +131,8 @@ namespace CarSmash.Controllers
                         }
                     }
                 }
-
-                _context.Update(product);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction("Index");
             }
             return View(product);

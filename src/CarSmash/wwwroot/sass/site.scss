@@ -5,10 +5,13 @@
 @import "base/variables";
 
 body, html {
+    .nav-wrapper {
+        font-family: $fjalla;
     .brand-icon {
         font-family: $fjalla;
-        font-size: 1.5em;
-        padding-left: 10px;
+        font-size: 2.4em;
+        padding-left: 20px;
+    }
     }
 
     #body-content {
@@ -16,9 +19,8 @@ body, html {
         width: 100%;
         font-family: $ptsans;
         color: black;
-        text-shadow: 0.3px 0.5px 1px white;
-        background-color: lighten(darkgrey, 4);
-
+        background-color: darken(darkgrey, 6);
+        font-size: 1.4em;
         h1, h2, h3, h4, h5 {
             font-family: $fjalla;
         }
