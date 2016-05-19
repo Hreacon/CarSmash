@@ -82,6 +82,19 @@ nav {
 .input-field .prefix.active {
   color: #000; }
 
+.product-container {
+  display: flex;
+  justify-content: center; }
+  .product-container .product-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; }
+    .product-container .product-images .product-price p {
+      display: flex;
+      justify-content: center; }
+    .product-container .product-images .product-display-image {
+      width: 300px; }
+
 .ViewCart {
   width: 90%;
   margin: auto; }
