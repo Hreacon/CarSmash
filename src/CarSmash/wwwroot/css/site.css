@@ -8,6 +8,10 @@
   .main-page p {
     padding-right: 7px; }
 
+.player {
+  width: 500px;
+  height: 400px; }
+
 nav {
   background-color: black; }
 
