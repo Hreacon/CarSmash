@@ -3,14 +3,13 @@
     ViewData["Title"] = "Manage your account";
 }
 
-<p class="text-success">@ViewData["StatusMessage"]</p>
 
 <div class="manageParent">
 <div class="manageChild">
     <h2>@ViewData["Title"].</h2>
     <h4>Change your account settings</h4>
     <hr />
-    <div class="passManage"
+    <div class="passManage">
     <dl class="dl-horizontal">
         <dt>Password:</dt>
         <dd class="changePass">
@@ -32,6 +31,7 @@
             }
         </ul>
        </dl>
+        <p class="text-success">@ViewData["StatusMessage"]</p>
     </div>
   </div>
 </div>
