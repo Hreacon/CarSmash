@@ -5,6 +5,8 @@
   .main-page #player {
     width: 100%;
     margin-top: 20px; }
+  .main-page p {
+    padding-right: 7px; }
 
 nav {
   background-color: black; }
@@ -45,6 +47,9 @@ nav {
 .products dt {
   font-weight: bold; }
 
+.productTile .product-price {
+  padding-right: 15px; }
+
 /* label color */
 .input-field label {
   color: #000; }
@@ -79,6 +84,19 @@ nav {
 /* icon prefix focus color */
 .input-field .prefix.active {
   color: #000; }
+
+.product-container {
+  display: flex;
+  justify-content: center; }
+  .product-container .product-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; }
+    .product-container .product-images .product-price p {
+      display: flex;
+      justify-content: center; }
+    .product-container .product-images .product-display-image {
+      width: 200px; }
 
 .ViewCart {
   width: 90%;
@@ -121,32 +139,28 @@ nav {
   .OrderSuccessful p {
     text-align: center; }
 
-.post-index {
-  width: 90%;
-  /*background-color: red;*/
+.videos {
+  padding-top: 100px;
+  padding-bottom: 100px; }
+
+.products {
+  padding-bottom: 100px;
+  width: 95%;
   margin: auto; }
-
-.manageParent {
-  display: flex;
-  /*border: solid blue 1px;*/
-  /*.manageChild{*/
-  /*border: solid red 1px;*/
-  justify-content: space-around; }
-  .manageParent h2 {
-    align-content: center; }
-  .manageParent h4 {
-    align-content: center;
-    margin-left: 20px; }
-  .manageParent .passManage {
-    /*display: flex;*/
-    align-content: center;
+  .products h2 {
     text-align: center; }
-  .manageParent .changePass {
-    text-align: center;
-    align-content: center;
-    margin-right: 40px; }
 
-/*}*/
+.card-content {
+  padding: 5px !important; }
+  .card-content span {
+    display: inline-block; }
+  .card-content span:first-child {
+    width: 50%;
+    overflow: hidden; }
+  .card-content span:last-child {
+    width: 39%;
+    text-align: right; }
+
 html, body {
   display: flex;
   flex-direction: column;
@@ -164,6 +178,7 @@ html, body {
     width: 100%;
     font-family: "PT Sans", sans-serif;
     color: black;
+    background-image: url(../images/smooth3.gif);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
