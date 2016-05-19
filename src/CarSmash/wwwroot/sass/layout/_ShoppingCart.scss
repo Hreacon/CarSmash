@@ -70,4 +70,24 @@
 
 .products {
     padding-bottom:100px;
+    width:95%;
+    margin:auto;
+    h2 {
+        text-align:center;
+    }
+}
+
+.card-content {
+    padding:5px !important;
+    span {
+        display:inline-block;
+    }
+    span:first-child {
+        width:50%;
+        overflow:hidden;
+    }
+    span:last-child {
+        width:39%;
+        text-align:right;
+    }
 }

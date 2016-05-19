@@ -3,7 +3,9 @@
 @import "layout/products";
 @import "base/inputs";
 @import "base/variables";
+@import "layout/productDetails";
 @import "layout/ShoppingCart";
+
 
 html, body {
     display: flex;
@@ -67,9 +69,7 @@ html, body {
 }
 
 @media (min-width:992px) {
-    .row {
-        width:90%;
-    }
+ 
 }
 
 .productTile {

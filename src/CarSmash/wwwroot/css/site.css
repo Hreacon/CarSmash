@@ -5,6 +5,8 @@
   .main-page #player {
     width: 100%;
     margin-top: 20px; }
+  .main-page p {
+    padding-right: 7px; }
 
 nav {
   background-color: black; }
@@ -126,7 +128,22 @@ nav {
   padding-bottom: 100px; }
 
 .products {
-  padding-bottom: 100px; }
+  padding-bottom: 100px;
+  width: 95%;
+  margin: auto; }
+  .products h2 {
+    text-align: center; }
+
+.card-content {
+  padding: 5px !important; }
+  .card-content span {
+    display: inline-block; }
+  .card-content span:first-child {
+    width: 50%;
+    overflow: hidden; }
+  .card-content span:last-child {
+    width: 39%;
+    text-align: right; }
 
 html, body {
   display: flex;
@@ -168,10 +185,6 @@ html, body {
     display: inline;
     font-size: small;
     opacity: .75; } }
-
-@media (min-width: 992px) {
-  .row {
-    width: 90%; } }
 
 .productTile img {
   width: 100px; }
