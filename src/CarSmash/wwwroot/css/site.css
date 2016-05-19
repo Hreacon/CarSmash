@@ -164,6 +164,9 @@ nav {
     width: 39%;
     text-align: right; }
 
+.main-page {
+  padding-bottom: 100px; }
+
 .post-index {
   width: 90%;
   /*background-color: red;*/
@@ -228,9 +231,7 @@ html, body {
     background-color: rgba(7, 0, 0, 0.7);
     display: inline;
     font-size: small;
-    opacity: .75; } 
-
-}
+    opacity: .75; } }
 
 .productTile img {
   width: 100px; }
