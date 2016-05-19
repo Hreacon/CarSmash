@@ -1,6 +1,10 @@
 ﻿<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
 <div class="Checkout">
+    @if (ViewBag.Message != null)
+    {
+        <p>@ViewBag.Message</p>
+    }
     <p>Total: @string.Format("{0:C}", ViewBag.Cart.Total)</p>
     <form method="Post" id="card-form">
         <label for="card-number">card number</label>
@@ -13,5 +17,4 @@
         <input id="card-expiry-year" type="text" value="2017"/>
         <input type="submit" value="Just Click Checkout" class="btn"/>
     </form>
-
 </div>

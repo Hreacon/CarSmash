@@ -197,7 +197,8 @@ namespace CarSmash.Controllers
                 SaveCart();
                 return View("OrderSuccessful");
             }
-            return View("Index");
+            ViewBag.Message = "Something went wrong";
+            return Checkout("");
         }
 
         
