@@ -8,8 +8,10 @@
                 <img src="@product.Images.ElementAtOrDefault(0).Url">
             </div>
             <div class="card-content">
-                <span>@product.Name</span>
-                <span>@string.Format("{0:C}", product.Price)</span>
+                <div class="row">
+                    <div class="product-name col s6">@product.Name</div>
+                    <div class="product-price col s6 right-align">@string.Format("{0:C}", product.Price)</div>
+                </div>
             </div>
         </div>
     </a>

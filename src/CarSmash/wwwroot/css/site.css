@@ -27,7 +27,7 @@ nav {
     color: #84ffff;
     text-shadow: 0.3px 0.5px 1px black;
     font-size: 1.6em; }
-  .nav-wrapper a:hover {
+  .nav-wrapper a:hover, .nav-wrapper .navbarHover {
     color: #18ffff;
     text-shadow: 0px 0px 3px #f6f6f6;
     background-color: transparent; }
@@ -46,6 +46,9 @@ nav {
 
 .products dt {
   font-weight: bold; }
+
+.productTile .product-price {
+  padding-right: 15px; }
 
 /* label color */
 .input-field label {
@@ -93,7 +96,7 @@ nav {
       display: flex;
       justify-content: center; }
     .product-container .product-images .product-display-image {
-      width: 300px; }
+      width: 200px; }
 
 .ViewCart {
   width: 90%;
@@ -102,15 +105,18 @@ nav {
     margin-top: 0;
     padding-top: 20px;
     text-align: center; }
-  .ViewCart ul li input[type=number] {
-    width: 75px;
-    text-align: center; }
+  .ViewCart ul {
+    margin: 0;
+    padding: 0; }
+    .ViewCart ul li input[type=number] {
+      width: 75px;
+      text-align: center; }
   .ViewCart form button {
-    width: 90%; }
+    width: 100%; }
   .ViewCart p {
-    text-align: center; }
+    text-align: center !important; }
   .ViewCart a.btn {
-    width: 90%;
+    width: 100%;
     margin-top: 10px; }
   .ViewCart a.btn:last-child {
     margin-bottom: 100px; }
@@ -120,7 +126,7 @@ nav {
   margin: auto; }
   .Checkout p {
     margin: 0;
-    text-align: center;
+    text-align: center !important;
     padding-top: 20px; }
   .Checkout form .btn {
     width: 100%;
@@ -134,7 +140,7 @@ nav {
     padding-top: 20px;
     text-align: center; }
   .OrderSuccessful p {
-    text-align: center; }
+    text-align: center !important; }
 
 .videos {
   padding-top: 100px;
@@ -205,7 +211,7 @@ html, body {
 .CartList ul {
   margin: 0;
   padding-top: 10px;
-  width: 90%;
+  width: 100%;
   display: flex;
   list-style-type: none;
   justify-content: space-between; }
