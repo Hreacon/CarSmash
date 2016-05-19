@@ -50,7 +50,7 @@ namespace CarSmash.Models
             int index = Products.IndexOf(item);
             if (index >= 0)
             {
-                Products[index].Quantity++;
+                Products[index] = item;
             }
             else
             {
