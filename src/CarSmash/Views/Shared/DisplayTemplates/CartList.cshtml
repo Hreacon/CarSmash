@@ -4,25 +4,23 @@
     var quantMax = 10;
 }
 
-<div class="container">
-    <div class="CartList">
-        <br />
-        <ul>
-            <li>
-                @product.Name
-            </li>
-            <li>
-                @product.Price
-            </li>
-            <li>
-                <input type="number" min="0" name="quantity.@product.ProductId" value="@product.Quantity" />
-            </li>
-            <li>
-                @string.Format("{0:C}", subtotal)
-            </li>
-            <li>
-                <a href="/Home/RemoveFromCart/@product.ProductId">Remove</a>
-            </li>
-        </ul>
-    </div>
+<div class="CartList">
+    <br />
+    <ul>
+        <li>
+            @product.Name
+        </li>
+        <li>
+            @product.Price
+        </li>
+        <li>
+            <input type="number" min="0" name="quantity.@product.ProductId" value="@product.Quantity" />
+        </li>
+        <li>
+            @string.Format("{0:C}", subtotal)
+        </li>
+        <li>
+            <a href="/Home/RemoveFromCart/@product.ProductId">Remove</a>
+        </li>
+    </ul>
 </div>
