@@ -2,6 +2,9 @@
   background-color: #e0e0e0;
   padding-left: 10px;
   padding-right: 10px; }
+  .main-page #player {
+    width: 100%;
+    margin-top: 20px; }
 
 nav {
   background-color: black; }
