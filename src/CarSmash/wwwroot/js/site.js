@@ -40,9 +40,8 @@ function ajaxPost(form, target) {
 function ajaxReturn(target, result, tag) {
     console.log("ajax success");
     $(target).html(result);
-    console.log(result);
     ajaxInit();
-    ajax("/Home/CartCount", "#CartCount");
+    updateCart();
     if (tag.length > 1 && tag != "no") {
         console.log('scroll');
         $(window).scrollTop($(tag).offset().top - 100);
@@ -50,7 +49,17 @@ function ajaxReturn(target, result, tag) {
         $(window).scrollTop(0);
     }
 }
-
+function updateCart() {
+    console.log("Update Cart in Navbar Start");
+    $.ajax({
+        type: 'GET',
+        url: "/Home/CartCount",
+        success: function (result) {
+            $("#CartCount").html(result);
+            console.log("Update Cart in Navbar Complete");
+        }
+    });
+}
 function ajaxInit() {
     // initialize the ajax calls in place of the standard event handling
     console.log('ajax init');

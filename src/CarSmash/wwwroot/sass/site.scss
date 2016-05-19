@@ -66,6 +66,12 @@ html, body {
     }
 }
 
+@media (min-width:992px) {
+    .row {
+        width:90%;
+    }
+}
+
 .productTile {
     img {
         width: 100px;

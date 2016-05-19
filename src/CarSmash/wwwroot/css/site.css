@@ -28,7 +28,7 @@ nav {
   .nav-wrapper a:hover {
     color: #18ffff;
     text-shadow: 0px 0px 3px #f6f6f6;
-    background-color: #9a9a9a; }
+    background-color: transparent; }
   .nav-wrapper i:hover {
     cursor: pointer;
     color: color("cyan", "accent-3"); }
@@ -80,6 +80,54 @@ nav {
 .input-field .prefix.active {
   color: #000; }
 
+.ViewCart {
+  width: 90%;
+  margin: auto; }
+  .ViewCart h3 {
+    margin-top: 0;
+    padding-top: 20px;
+    text-align: center; }
+  .ViewCart ul li input[type=number] {
+    width: 75px;
+    text-align: center; }
+  .ViewCart form button {
+    width: 90%; }
+  .ViewCart p {
+    text-align: center; }
+  .ViewCart a.btn {
+    width: 90%;
+    margin-top: 10px; }
+  .ViewCart a.btn:last-child {
+    margin-bottom: 100px; }
+
+.Checkout {
+  width: 90%;
+  margin: auto; }
+  .Checkout p {
+    margin: 0;
+    text-align: center;
+    padding-top: 20px; }
+  .Checkout form .btn {
+    width: 100%;
+    margin-bottom: 100px; }
+
+.OrderSuccessful {
+  padding-bottom: 100px; }
+  .OrderSuccessful h1 {
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+    text-align: center; }
+  .OrderSuccessful p {
+    text-align: center; }
+
+.videos {
+  padding-top: 100px;
+  padding-bottom: 100px; }
+
+.products {
+  padding-bottom: 100px; }
+
 html, body {
   display: flex;
   flex-direction: column;
@@ -121,13 +169,12 @@ html, body {
     font-size: small;
     opacity: .75; } }
 
+@media (min-width: 992px) {
+  .row {
+    width: 90%; } }
+
 .productTile img {
   width: 100px; }
-
-.CartList h3 {
-  margin-top: 0;
-  padding-top: 20px;
-  text-align: center; }
 
 .CartList ul {
   margin: 0;
