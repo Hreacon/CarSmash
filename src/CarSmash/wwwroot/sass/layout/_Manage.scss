@@ -1,0 +1,26 @@
+﻿.manageParent{
+    display: flex;
+    /*border: solid blue 1px;*/
+/*.manageChild{*/
+    /*border: solid red 1px;*/
+    justify-content: space-around;
+    h2{
+        align-content: center;
+    }
+     h4{
+        align-content: center;
+        margin-left: 20px;
+    }
+     .passManage{
+         /*display: flex;*/
+         align-content: center;
+         text-align: center;
+     }
+     .changePass{
+         text-align: center;
+         align-content: center;
+         margin-right: 40px;
+
+     }
+    }
+/*}*/

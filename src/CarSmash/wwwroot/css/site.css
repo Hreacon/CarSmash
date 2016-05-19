@@ -47,6 +47,9 @@ nav {
 .products dt {
   font-weight: bold; }
 
+.productTile .product-price {
+  padding-right: 15px; }
+
 /* label color */
 .input-field label {
   color: #000; }
