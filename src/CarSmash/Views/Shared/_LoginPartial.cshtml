@@ -1,22 +1,21 @@
 ﻿@using System.Security.Claims
-
 @if (User.IsSignedIn())
 {
-    <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
-        <ul class="center">
+    <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm">
+        <ul>
             <li>
-                <a asp-controller="Manage" asp-action="Index" title="Manage" class="user-name">Hello @User.GetUserName()!</a>
+                <a asp-controller="Manage" asp-action="Index" title="Manage" class="user-name btn-floating btn-large"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Manage Account">face</i></a>
             </li>
             <li>
-                <button type="submit" class="btn waves-effect waves-light">Log off</button>
+                <a class="btn-floating btn-large" onclick="this.form.submit()"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Log Out">exit_to_app</i></a>
             </li>
         </ul>
     </form>
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-controller="Account" asp-action="Register">Register</a></li>
-        <li><a asp-controller="Account" asp-action="Login">Log in</a></li>
+    <ul>
+        <li><a class="btn-floating btn-large tooltipped" asp-controller="Account" asp-action="Register" data-position="bottom" data-delay="50" data-tooltip="Register"><i class="material-icons">account_circle</i></a></li>
+        <li><a class="btn-floating btn-large tooltipped" asp-controller="Account" asp-action="Login" data-position="bottom" data-delay="50" data-tooltip="Login"><i class="material-icons">face</i></a></li>
     </ul>
 }

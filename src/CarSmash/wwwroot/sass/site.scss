@@ -5,11 +5,11 @@
 @import "base/variables";
 @import "layout/ShoppingCart";
 
-
 html, body {
-    display:flex;
-    flex-direction:column;
-    min-height:100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+
     .nav-wrapper {
         font-family: $fjalla;
 
@@ -19,8 +19,9 @@ html, body {
             padding-left: 20px;
         }
     }
+
     * {
-        flex-shrink:0;
+        flex-shrink: 0;
     }
 
     .body-content {
@@ -37,9 +38,15 @@ html, body {
         overflow:hidden;
         //background-color: lighten(lightgrey, 2);
         font-size: 1.4em;
+
         h1, h2, h3, h4, h5 {
             font-family: $fjalla;
         }
+
+        p {
+            text-align: justify;
+        }
+
         .container {
             background-color: lighten(lightgrey, 2);
         }
@@ -85,23 +92,33 @@ html, body {
 }
 
 .product-images {
-    width:30%;
+    width: 30%;
+
     .product-display-image {
         img {
-            width:100%;
+            width: 100%;
         }
     }
+
     .product-image-list {
         img {
-            width:100px;
+            width: 100px;
         }
     }
 }
 
 .product-header {
-    font-size:2em;
-    font-weight:bold;
+    font-size: 2em;
+    font-weight: bold;
 }
 
+.videos {
+    #player {
+        height: 400px;
+        width: 80%;
+    }
 
-
+    p {
+        padding-right: 10px;
+    }
+}

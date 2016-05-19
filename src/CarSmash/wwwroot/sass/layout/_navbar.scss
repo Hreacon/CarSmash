@@ -4,16 +4,20 @@
 
 .nav-wrapper {
     background-color: darken(darkgrey, 6);
+
     .user-name {
-            font-size: 1em;
-        }
+        font-size: 1em;
+    }
+
     .button-collapse {
         padding-right: 10px;
     }
+
     .side-nav {
         .user-name {
             font-size: 1em;
         }
+
         background-color: darken(grey, 2);
     }
 
@@ -26,11 +30,18 @@
     a:hover {
         color: #18ffff;
         text-shadow: 0px 0px 3px #f6f6f6;
-    background-color: darken(darkgrey, 6);
+        background-color: darken(darkgrey, 6);
     }
 
     i:hover {
         cursor: pointer;
         color: color("cyan", "accent-3");
     }
+}
+
+.menu-button {
+    position: absolute;
+    top: 5px;
+    right: 60px;
+    z-index: 999;
 }
