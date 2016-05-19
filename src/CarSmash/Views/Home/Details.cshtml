@@ -1,26 +1,41 @@
 ﻿@{
     var product = Model as Product;
 }
-<div class="product-container">
-    <div class="product-images">
-        <div class="product-header">
+<div class="container ">
+    <div class="row">
+            
+            <div class="product-images col s4">
+                <div class="product-display-image">
+                    <img src="@product.Images.ElementAt(0).Url" />
+                </div>
+                <div class="product-image-list">
+                    @foreach (var image in @product.Images)
+                    {
+                        <img src="@image.Url" />
+                    }
+                </div>
+            </div>
+        <div class="product-header col s4">
             <p>@product.Name</p>
         </div>
-        <div class="product-images">
-            <div class="product-display-image">
-                <img src="@product.Images.ElementAt(0).Url" />
+            <div class="product-price col s4">
+                <p>$@product.Price</p>
+                <form asp-action="AddToCart" asp-controller="Home">
+                    <div class="input-field">
+                        <input hidden name="id" value="@product.ProductId" />
+                        <label for="quantity">Quantity</label>
+                        <input type="number" name="quantity" class="quantity-selector" value="@product.Quantity"/>
+                        <a onclick="$(this).parent().parent().submit()" class="ajax btn btn-default" data-target="#content"> Add To Cart</a>
+                    </div>
+                
+                </form>
+
+               
             </div>
-            <div class="product-image-list">
-                @foreach (var image in @product.Images)
-            {
-                    <img src="@image.Url" />
-                }
-            </div>
-        </div>
-        <div class="product-price">
-            <p>$@product.Price</p>
-            <a href="/home/addtocart/@product.ProductId" class="ajax btn btn-default" data-target="#content"> Add To Cart</a>
-        </div>
-            
+       
     </div>
+</div>
+
+   
+    
 </div>

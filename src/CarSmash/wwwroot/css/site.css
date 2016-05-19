@@ -50,6 +50,14 @@ nav {
 .productTile .product-price {
   padding-right: 15px; }
 
+.product-container {
+  /*display: flex;
+     flex-flow: column wrap;*/ }
+  .product-container .product-header p {
+    text-align: center; }
+  .product-container .product-price p {
+    text-align: center; }
+
 /* label color */
 .input-field label {
   color: #000; }
@@ -228,9 +236,7 @@ html, body {
     background-color: rgba(7, 0, 0, 0.7);
     display: inline;
     font-size: small;
-    opacity: .75; } 
-
-}
+    opacity: .75; } }
 
 .productTile img {
   width: 100px; }

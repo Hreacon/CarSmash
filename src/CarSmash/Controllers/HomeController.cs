@@ -82,17 +82,30 @@ namespace CarSmash.Controllers
             return View("Details", GetProduct(id));    
         }
 
+
+
         public IActionResult Comments()
         {
             return View();
         }
 
+        [HttpGet]
         public IActionResult AddToCart(int id, string ajax)
         {
             // TODO include images
             _cart.Add(GetProduct(id));
             SaveCart();
-            return RedirectToAction("Products", new {ajax = ajax});
+            return RedirectToAction("ViewCart", new { ajax = ajax});
+        }
+
+        [HttpPost]
+        public IActionResult AddToCart(int id, int quantity)
+        {
+            var product = GetProduct(id);
+            product.Quantity = quantity;
+            _cart.Add(product);
+            SaveCart();
+            return RedirectToAction("ViewCart");
         }
 
         public IActionResult RemoveFromCart(int id, string ajax)
