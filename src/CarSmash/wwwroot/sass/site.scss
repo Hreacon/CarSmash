@@ -33,7 +33,7 @@ html, body {
         width: 100%;
         font-family: $ptsans;
         color: black;
-        //background-image: url(../images/smooth3.gif);
+        background-image: url(../images/smooth3.gif);
         background-attachment:fixed;
         background-repeat:no-repeat;
         background-position:center;
@@ -70,8 +70,11 @@ html, body {
     }
 }
 
-@media (min-width:992px) {
- 
+@media (min-width:700px) {
+    .player {
+        width: 700px;
+        height: 400px;
+    }
 }
 
 .productTile {

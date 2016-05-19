@@ -9,8 +9,8 @@
     padding-right: 7px; }
 
 .player {
-  width: 500px;
-  height: 400px; }
+  min-width: 375px;
+  /*height: 400px;*/ }
 
 nav {
   background-color: black; }
@@ -222,6 +222,7 @@ html, body {
     width: 100%;
     font-family: "PT Sans", sans-serif;
     color: black;
+    background-image: url(../images/smooth3.gif);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
@@ -244,6 +245,11 @@ html, body {
     display: inline;
     font-size: small;
     opacity: .75; } }
+
+@media (min-width: 700px) {
+  .player {
+    width: 700px;
+    height: 400px; } }
 
 .productTile img {
   width: 100px; }
