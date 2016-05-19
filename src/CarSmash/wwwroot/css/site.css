@@ -47,6 +47,9 @@ nav {
 .products dt {
   font-weight: bold; }
 
+.productTile .product-price {
+  padding-right: 15px; }
+
 /* label color */
 .input-field label {
   color: #000; }
@@ -81,6 +84,19 @@ nav {
 /* icon prefix focus color */
 .input-field .prefix.active {
   color: #000; }
+
+.product-container {
+  display: flex;
+  justify-content: center; }
+  .product-container .product-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; }
+    .product-container .product-images .product-price p {
+      display: flex;
+      justify-content: center; }
+    .product-container .product-images .product-display-image {
+      width: 200px; }
 
 .ViewCart {
   width: 90%;
