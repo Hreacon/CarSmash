@@ -4,6 +4,7 @@
 @import "base/inputs";
 @import "base/variables";
 @import "layout/ShoppingCart";
+@import "layout/Posts";
 
 html, body {
     display: flex;
@@ -29,7 +30,7 @@ html, body {
         width: 100%;
         font-family: $ptsans;
         color: black;
-        background-image: url(../images/smooth3.gif);
+        //background-image: url(../images/smooth3.gif);
         background-attachment:fixed;
         background-repeat:no-repeat;
         background-position:center;
