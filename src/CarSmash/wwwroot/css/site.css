@@ -125,6 +125,9 @@ nav {
   padding-top: 100px;
   padding-bottom: 100px; }
 
+.products {
+  padding-bottom: 100px; }
+
 html, body {
   display: flex;
   flex-direction: column;
@@ -165,6 +168,10 @@ html, body {
     display: inline;
     font-size: small;
     opacity: .75; } }
+
+@media (min-width: 992px) {
+  .row {
+    width: 90%; } }
 
 .productTile img {
   width: 100px; }
