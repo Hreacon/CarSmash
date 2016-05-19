@@ -7,6 +7,8 @@
         text-align:center;
     }
     ul {
+        margin:0;
+        padding:0;
         li {
             input[type=number] {
                 width:75px;
@@ -16,14 +18,14 @@
     }
     form {
         button {
-            width:90%;
+            width:100%;
         }
     }
     p {
-        text-align:center;
+        text-align:center !important;
     }
     a.btn {
-        width:90%;
+        width:100%;
         margin-top:10px;
     }
     a.btn:last-child {
@@ -37,7 +39,7 @@
     margin:auto;
     p {
         margin:0;
-        text-align:center;
+        text-align:center !important;
         padding-top:20px;
     }
     form {
@@ -55,11 +57,9 @@
         padding:0;
         padding-top:20px;
         text-align:center;
-
     }
     p {
-        text-align:center;
-
+        text-align:center !important;
     }
    
 }
