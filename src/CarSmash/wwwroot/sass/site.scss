@@ -82,7 +82,7 @@ html, body {
     ul {
         margin:0;
         padding-top:10px;
-        width: 90%;
+        width: 100%;
         display: flex;
         list-style-type: none;
         justify-content: space-between;
@@ -127,12 +127,4 @@ html, body {
     p {
         padding-right: 10px;
     }
-}
-
-.OrderSuccessful p {
-    /*display: flex;
-    flex-flow: column wrap;
-    justify-content: center;*/
-    text-align: center;
-
 }
