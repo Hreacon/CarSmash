@@ -3,6 +3,7 @@
 @import "layout/products";
 @import "base/inputs";
 @import "base/variables";
+@import "layout/ShoppingCart";
 
 html, body {
     display: flex;
@@ -28,13 +29,13 @@ html, body {
         width: 100%;
         font-family: $ptsans;
         color: black;
-        background-image: url(../images/smooth2.gif);
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        padding-bottom: 1000px;
-        overflow: hidden;
+        background-image: url(../images/smooth3.gif);
+        background-attachment:fixed;
+        background-repeat:no-repeat;
+        background-position:center;
+        background-size:cover;
+        padding-bottom:1000px;
+        overflow:hidden;
         //background-color: lighten(lightgrey, 2);
         font-size: 1.4em;
 
@@ -72,7 +73,14 @@ html, body {
 }
 
 .CartList {
+    h3 {
+        margin-top:0;
+        padding-top:20px;
+        text-align:center;
+    }
     ul {
+        margin:0;
+        padding-top:10px;
         width: 90%;
         display: flex;
         list-style-type: none;

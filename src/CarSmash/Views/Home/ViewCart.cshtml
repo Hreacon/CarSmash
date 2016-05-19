@@ -1,34 +1,40 @@
 ﻿@{
     var cart = ViewBag.Cart as ShoppingCart;
 }
-<div class="CartList Title">
-    <ul>
-        <li>
-            Product Name
-        </li><li>
-            Price/Ea
-        </li><li>
-            Qty
-        </li><li>
-            Subtotal
-        </li><li>
-            Remove
-        </li>
-    </ul>
-</div>
-@using (Html.BeginForm("UpdateCart", "Home", FormMethod.Post))
-{
-    foreach (var product in cart.Products)
+<div class="ViewCart">
+    <h3>Your Cart</h3>
+    <div class="CartList Title">
+        <ul>
+            <li>
+                Product Name
+            </li>
+            <li>
+                Price/Ea
+            </li>
+            <li>
+                Qty
+            </li>
+            <li>
+                Subtotal
+            </li>
+            <li>
+                Remove
+            </li>
+        </ul>
+    </div>
+    @using (Html.BeginForm("UpdateCart", "Home", FormMethod.Post))
     {
-        @Html.DisplayFor(m=>product, "CartList")
+        foreach (var product in cart.Products)
+        {
+            @Html.DisplayFor(m => product, "CartList")
+        }
+        <button class="">Update Cart</button>
     }
-    <button class="">Update Cart</button>
-}
 
-@*string.format{0:C} formats string to money format. C stands for currency*@
-<p>Total: @string.Format("{0:C}", cart.Total)</p>
-@if (cart.Any())
-{
-    <a href="/Home/Checkout" class="ajax" data-target="#content">Checkout</a>
-}
-    
+    @*string.format{0:C} formats string to money format. C stands for currency*@
+    <p>Total: @string.Format("{0:C}", cart.Total)</p>
+    @if (cart.Any())
+    {
+        <a href="/Home/Checkout" class="ajax" data-target="#content">Checkout</a>
+    }
+</div>

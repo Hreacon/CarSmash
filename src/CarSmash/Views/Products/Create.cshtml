@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="input-field">
-                    <input asp-for="Price" class="validate" type="number" />
+                    <input asp-for="Price" class="validate" type="number" step=".01"/>
                     <label asp-for="Price"></label>
                     <span asp-validation-for="Price" class="text-danger" />
                 </div>
