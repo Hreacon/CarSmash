@@ -1,6 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    double balance = ViewBag.Balance;
 }
-<h1>Order Successful</h1>
+<div class="OrderSuccessful">
+    <h1>Order Successful!</h1>
+    <p>Thank you for supporting car smash!</p>
+    <p>We have collected @string.Format("{0:C}", balance) from our fans!</p>
+    <p>Your order will be shipped ASAP.</p>
+</div>

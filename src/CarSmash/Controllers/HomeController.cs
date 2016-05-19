@@ -157,9 +157,9 @@ namespace CarSmash.Controllers
         {
             var source = Request.Form["stripeToken"];
 
-            RestClient client = new RestClient("https://api.stripe.com/v1");
+            RestClient client = new RestClient("https://api.stripe.com/v1/");
             client.Authenticator = new HttpBasicAuthenticator("sk_test_VSvoTXCfc6VeAVz6YGdRBiKu:", "");
-            RestRequest request = new RestRequest("/charges");
+            RestRequest request = new RestRequest("charges");
 
             request.AddParameter("amount", Math.Floor(_cart.Total * 100));
 
@@ -195,6 +195,15 @@ namespace CarSmash.Controllers
                 _db.SaveChanges();
                 _cart = new ShoppingCart();
                 SaveCart();
+
+                var balanceRequest = new RestRequest("balance");
+                var balanceResponse = client.Execute(balanceRequest);
+                var start = balanceResponse.Content.IndexOf("amount") + "amount".Length + 3;
+                var length = balanceResponse.Content.IndexOf(",", start)-start;
+
+                double balance = int.Parse(balanceResponse.Content.Substring(start, length));
+                balance = balance/100;
+                ViewBag.Balance = balance;
                 return View("OrderSuccessful");
             }
             ViewBag.Message = "Something went wrong";
