@@ -96,7 +96,7 @@ nav {
       display: flex;
       justify-content: center; }
     .product-container .product-images .product-display-image {
-      width: 200px; }
+      width: 300px; }
 
 .ViewCart {
   width: 90%;
@@ -143,7 +143,7 @@ nav {
     text-align: center !important; }
 
 .videos {
-  padding-top: 100px;
+  padding-top: 40px;
   padding-bottom: 100px; }
 
 .products {
@@ -163,6 +163,9 @@ nav {
   .card-content span:last-child {
     width: 39%;
     text-align: right; }
+
+.main-page {
+  padding-bottom: 100px; }
 
 .post-index {
   width: 90%;
@@ -228,9 +231,7 @@ html, body {
     background-color: rgba(7, 0, 0, 0.7);
     display: inline;
     font-size: small;
-    opacity: .75; } 
-
-}
+    opacity: .75; } }
 
 .productTile img {
   width: 100px; }
