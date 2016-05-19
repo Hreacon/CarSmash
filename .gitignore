@@ -12,6 +12,8 @@
 /src/CarSmash/wwwroot/uploads/*
 /src/CarSmash/wwwroot/images/Thumbs.db
 /src/CarSmash/wwwroot/css/*
+/src/CarSmash/wwwroot/sass/site.css.map
+/src/CarSmash/wwwroot/sass/site.min.css
 /src/CarSmash/wwwroot/lib/materialize/sass/materialize.css.map
 
 # Build results
