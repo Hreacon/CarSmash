@@ -1,4 +1,6 @@
-﻿<div class="navbar-fixed">
+﻿@using System.Security.Claims
+
+<div class="navbar-fixed">
     <nav>
         <div class="container">
             <div class="nav-wrapper">
@@ -12,7 +14,24 @@
                     <li>@await Html.PartialAsync("_LoginPartial")</li>
                 </ul>
                 <ul class="side-nav center" id="mobile-demo">
-                    <li>@await Html.PartialAsync("_LoginPartial")</li>
+                    @if (User.IsSignedIn())
+                    {
+                        <li>
+
+                            <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm">
+                                <a asp-controller="Manage" asp-action="Index" title="Manage" class="user-name">Manage Account</a>
+
+                                <a onclick="$(this).parent().submit()">Log Out</a>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+
+                        <li><a class="tooltipped" asp-controller="Account" asp-action="Register" data-position="bottom" data-delay="50" data-tooltip="Register">Register</a></li>
+                        <li><a class="tooltipped" asp-controller="Account" asp-action="Login" data-position="bottom" data-delay="50" data-tooltip="Login">Login</a></li>
+
+                    }
                     <li><a asp-action="Index" asp-controller="Posts">Posts</a></li>
                     <li><a asp-action="Videos" asp-controller="Home">Videos</a></li>
                     <li><a asp-action="ViewCart" asp-controller="Home">Shopping Cart</a></li>
