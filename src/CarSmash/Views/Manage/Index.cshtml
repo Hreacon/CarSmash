@@ -3,15 +3,17 @@
     ViewData["Title"] = "Manage your account";
 }
 
-<h2>@ViewData["Title"].</h2>
 <p class="text-success">@ViewData["StatusMessage"]</p>
 
-<div>
+<div class="manageParent">
+<div class="manageChild">
+    <h2>@ViewData["Title"].</h2>
     <h4>Change your account settings</h4>
     <hr />
+    <div class="passManage"
     <dl class="dl-horizontal">
         <dt>Password:</dt>
-        <dd>
+        <dd class="changePass">
             @if (Model.HasPassword)
             {
                 <text>[&nbsp;&nbsp;<a asp-controller="Manage" asp-action="ChangePassword">Change</a>&nbsp;&nbsp;]</text>
@@ -29,5 +31,7 @@
                 <li><a href="/Roles/Index">Manage Roles</a></li>
             }
         </ul>
-    </dl>
+       </dl>
+    </div>
+  </div>
 </div>
