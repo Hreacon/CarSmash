@@ -224,5 +224,10 @@ namespace CarSmash.Controllers
             if (ajax == "true") return PartialView("Videos");
             return View();
         }
+
+        public IActionResult CartCount()
+        {
+            return Content(_cart.Count.ToString());
+        }
     }
 }
