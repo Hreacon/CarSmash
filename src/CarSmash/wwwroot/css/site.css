@@ -5,6 +5,8 @@
   .main-page #player {
     width: 100%;
     margin-top: 20px; }
+  .main-page p {
+    padding-right: 7px; }
 
 nav {
   background-color: black; }
@@ -206,4 +208,10 @@ html, body {
 
 .videos p {
   padding-right: 10px; }
+
+.OrderSuccessful p {
+  /*display: flex;
+    flex-flow: column wrap;
+    justify-content: center;*/
+  text-align: center; }
 
