@@ -17,6 +17,8 @@ nav {
     padding-right: 10px; }
   .nav-wrapper .side-nav {
     background-color: #7b7b7b; }
+    .nav-wrapper .side-nav ul .large i {
+      display: inline; }
     .nav-wrapper .side-nav .user-name {
       font-size: 1em; }
   .nav-wrapper a {
