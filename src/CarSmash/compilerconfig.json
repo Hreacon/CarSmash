@@ -10,5 +10,13 @@
   {
     "outputFile": "wwwroot/css/materialize.css",
     "inputFile": "wwwroot/lib/materialize/sass/materialize.scss"
-  } 
+  },
+  {
+    "outputFile": "wwwroot/sass/layout/_navbar.css",
+    "inputFile": "wwwroot/sass/layout/_navbar.scss"
+  },
+  {
+    "outputFile": "wwwroot/sass/layout/_Manage.css",
+    "inputFile": "wwwroot/sass/layout/_Manage.scss"
+  }
 ]

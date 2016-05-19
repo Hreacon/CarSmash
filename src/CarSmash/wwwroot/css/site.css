@@ -27,7 +27,7 @@ nav {
     color: #84ffff;
     text-shadow: 0.3px 0.5px 1px black;
     font-size: 1.6em; }
-  .nav-wrapper a:hover {
+  .nav-wrapper a:hover, .nav-wrapper .navbarHover {
     color: #18ffff;
     text-shadow: 0px 0px 3px #f6f6f6;
     background-color: transparent; }
@@ -105,15 +105,18 @@ nav {
     margin-top: 0;
     padding-top: 20px;
     text-align: center; }
-  .ViewCart ul li input[type=number] {
-    width: 75px;
-    text-align: center; }
+  .ViewCart ul {
+    margin: 0;
+    padding: 0; }
+    .ViewCart ul li input[type=number] {
+      width: 75px;
+      text-align: center; }
   .ViewCart form button {
-    width: 90%; }
+    width: 100%; }
   .ViewCart p {
-    text-align: center; }
+    text-align: center !important; }
   .ViewCart a.btn {
-    width: 90%;
+    width: 100%;
     margin-top: 10px; }
   .ViewCart a.btn:last-child {
     margin-bottom: 100px; }
@@ -123,7 +126,7 @@ nav {
   margin: auto; }
   .Checkout p {
     margin: 0;
-    text-align: center;
+    text-align: center !important;
     padding-top: 20px; }
   .Checkout form .btn {
     width: 100%;
@@ -137,7 +140,7 @@ nav {
     padding-top: 20px;
     text-align: center; }
   .OrderSuccessful p {
-    text-align: center; }
+    text-align: center !important; }
 
 .videos {
   padding-top: 100px;
@@ -161,6 +164,32 @@ nav {
     width: 39%;
     text-align: right; }
 
+.post-index {
+  width: 90%;
+  /*background-color: red;*/
+  margin: auto; }
+
+.manageParent {
+  display: flex;
+  /*border: solid blue 1px;*/
+  /*.manageChild{*/
+  /*border: solid red 1px;*/
+  justify-content: space-around; }
+  .manageParent h2 {
+    align-content: center; }
+  .manageParent h4 {
+    align-content: center;
+    margin-left: 20px; }
+  .manageParent .passManage {
+    /*display: flex;*/
+    align-content: center;
+    text-align: center; }
+  .manageParent .changePass {
+    text-align: center;
+    align-content: center;
+    margin-right: 40px; }
+
+/*}*/
 html, body {
   display: flex;
   flex-direction: column;
@@ -178,7 +207,6 @@ html, body {
     width: 100%;
     font-family: "PT Sans", sans-serif;
     color: black;
-    background-image: url(../images/smooth3.gif);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
@@ -200,7 +228,9 @@ html, body {
     background-color: rgba(7, 0, 0, 0.7);
     display: inline;
     font-size: small;
-    opacity: .75; } }
+    opacity: .75; } 
+
+}
 
 .productTile img {
   width: 100px; }
@@ -208,7 +238,7 @@ html, body {
 .CartList ul {
   margin: 0;
   padding-top: 10px;
-  width: 90%;
+  width: 100%;
   display: flex;
   list-style-type: none;
   justify-content: space-between; }

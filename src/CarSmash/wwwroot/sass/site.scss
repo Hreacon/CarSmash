@@ -5,6 +5,8 @@
 @import "base/variables";
 @import "layout/productDetails";
 @import "layout/ShoppingCart";
+@import "layout/Posts";
+@import "layout/Manage";
 
 
 html, body {
@@ -31,7 +33,7 @@ html, body {
         width: 100%;
         font-family: $ptsans;
         color: black;
-        background-image: url(../images/smooth3.gif);
+        //background-image: url(../images/smooth3.gif);
         background-attachment:fixed;
         background-repeat:no-repeat;
         background-position:center;
@@ -82,7 +84,7 @@ html, body {
     ul {
         margin:0;
         padding-top:10px;
-        width: 90%;
+        width: 100%;
         display: flex;
         list-style-type: none;
         justify-content: space-between;

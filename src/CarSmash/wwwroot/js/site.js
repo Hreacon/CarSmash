@@ -126,6 +126,13 @@ $(document)
                 }
             });
         $('select').material_select();
+        $('.cartIcon')
+            .hover(function() {
+                    $('.cartIcon').not(this).addClass('navbarHover');
+                },
+                function() {
+                    $('.cartIcon').not(this).removeClass('navbarHover');
+                });
         $(".button-collapse").sideNav({
             menuWidth: 250,
             edge: 'right',
