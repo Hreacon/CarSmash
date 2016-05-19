@@ -28,26 +28,27 @@ namespace CarSmash.Controllers
 
         public IActionResult Index(string ajax)
         {
-            //if (!_db.Products.Any())
-            //{
-            //    // if no products create a test product
-            //    //TODO remove on deploy
-            //    _db.Images.Add(new Image()
-            //    {
-            //        Url = "/images/products/nurburg.jpg"
-            //    });
-            //    _db.SaveChanges();
-            //    _db.Products.Add(new Product()
-            //    {
-            //        Description = "Nurburgring Sticker",
-            //        Images = _db.Images.ToList(),
-            //        Name = "Nurburg Sticker",
-            //        Price = 10.99
-            //    });
-            //    _db.SaveChanges();
-            //}
-            if(ajax == "true") return PartialView();
-            return View();
+            if (!_db.Products.Any())
+            {
+                // if no products create a test product
+                //TODO remove on deploy
+                _db.Images.Add(new Image()
+                {
+                    Url = "/images/products/nurburg.jpg"
+                });
+                _db.SaveChanges();
+                _db.Products.Add(new Product()
+                {
+                    Description = "Nurburgring Sticker",
+                    Images = _db.Images.ToList(),
+                    Name = "Nurburg Sticker",
+                    Price = 10.99
+                });
+                _db.SaveChanges();
+            }
+            
+            if (ajax == "true") return PartialView();
+            return View(_db.Posts.ToList());
         }
 
         public IActionResult About()
