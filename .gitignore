@@ -9,10 +9,8 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-
-/wwwroot/css/site.css
-/wwwroot/css/site.min.css
-/wwwroot/css/materialize.css.*
+/src/CarSmash/wwwroot/uploads/*
+/src/CarSmash/wwwroot/css/*
 /src/CarSmash/wwwroot/lib/materialize/sass/materialize.css.map
 
 # Build results
@@ -28,7 +26,7 @@ bld/
 
 # Visual Studio 2015 cache/options directory
 .vs/
-# Uncomment if you have tasks that create the project's static files in wwwroot
+# Uncomment if you have tasks that create the project's static files in src/CarSmash/wwwroot
 #wwwroot/
 
 # MSTest test Results
