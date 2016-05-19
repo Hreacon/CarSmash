@@ -1,18 +1,24 @@
 ﻿@{
     var product = Model as Product;
 }
-
-<div class="product-images">
-    <div class="product-display-image">
-        <img src="@product.Images.ElementAt(0).Url"/>
+<div class="product-container">
+    <div class="product-images">
+        <div class="product-header">
+            <p>@product.Name</p>
+        </div>
+        <div class="product-display-image">
+            <img src="@product.Images.ElementAt(0).Url" />
+        </div>
+        <div class="product-image-list">
+            @foreach (var image in @product.Images)
+            {
+                <img src="@image.Url" />
+            }
+        </div>
+        <div class="product-price">
+            <p>$@product.Price</p>
+            <a href="/home/addtocart/@product.ProductId" class="ajax btn btn-default" data-target="#content"> Add To Cart</a>
+        </div>
+            
     </div>
-    <div class="product-image-list">
-        @foreach (var image in @product.Images)
-        {
-            <img src="@image.Url"/>
-        }
-    </div>
-</div>
-<div class="product-header">
-    <p>@product.Name</p>
 </div>

@@ -1,0 +1,21 @@
+﻿.product-container{
+    display:flex;
+    justify-content: center;
+    .product-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+        .product-price{
+            p{
+                display: flex;
+                justify-content: center;
+            }
+            
+        }
+
+    .product-display-image {
+        width: 200px;
+    }
+}
+}
+
