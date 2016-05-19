@@ -42,6 +42,7 @@ function ajaxReturn(target, result, tag) {
     $(target).html(result);
     console.log(result);
     ajaxInit();
+    ajax("/Home/CartCount", "#CartCount");
     if (tag.length > 1 && tag != "no") {
         console.log('scroll');
         $(window).scrollTop($(tag).offset().top - 100);
