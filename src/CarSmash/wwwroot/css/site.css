@@ -96,7 +96,7 @@ nav {
       display: flex;
       justify-content: center; }
     .product-container .product-images .product-display-image {
-      width: 200px; }
+      width: 300px; }
 
 .ViewCart {
   width: 90%;
@@ -143,7 +143,7 @@ nav {
     text-align: center !important; }
 
 .videos {
-  padding-top: 100px;
+  padding-top: 40px;
   padding-bottom: 100px; }
 
 .products {
