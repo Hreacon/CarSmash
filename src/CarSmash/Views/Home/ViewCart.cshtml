@@ -28,13 +28,13 @@
         {
             @Html.DisplayFor(m => product, "CartList")
         }
-        <button class="">Update Cart</button>
+        <button class="btn">Update Cart</button>
     }
 
     @*string.format{0:C} formats string to money format. C stands for currency*@
     <p>Total: @string.Format("{0:C}", cart.Total)</p>
     @if (cart.Any())
     {
-        <a href="/Home/Checkout" class="ajax" data-target="#content">Checkout</a>
+        <a href="/Home/Checkout" class="btn ajax" data-target="#content">Checkout</a>
     }
 </div>

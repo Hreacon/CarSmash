@@ -1,2 +1,45 @@
-﻿body {
+﻿.ViewCart {
+    width:90%;
+    margin:auto;
+    h3 {
+        margin-top:0;
+        padding-top:20px;
+        text-align:center;
+    }
+    ul {
+        li {
+            input[type=number] {
+                width:75px;
+                text-align:center;
+            }
+        }
+    }
+    form {
+        button {
+            width:90%;
+        }
+    }
+    p {
+        text-align:center;
+    }
+    a.btn {
+        width:90%;
+        margin-bottom:100px;
+    }
+}
+
+.Checkout {
+    width:90%;
+    margin:auto;
+    p {
+        margin:0;
+        text-align:center;
+        padding-top:20px;
+    }
+    form {
+        .btn {
+            width:100%;
+            margin-bottom:100px;
+        }
+    }
 }

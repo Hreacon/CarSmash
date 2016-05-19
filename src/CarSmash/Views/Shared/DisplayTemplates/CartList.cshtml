@@ -11,7 +11,7 @@
             @product.Name
         </li>
         <li>
-            @product.Price
+            @string.Format("{0:C}", product.Price)
         </li>
         <li>
             <input type="number" min="0" name="quantity.@product.ProductId" value="@product.Quantity" />
