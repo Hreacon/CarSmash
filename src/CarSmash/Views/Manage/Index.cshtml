@@ -2,32 +2,35 @@
 @{
     ViewData["Title"] = "Manage your account";
 }
+<div class="container">
 
-<h2>@ViewData["Title"].</h2>
-<p class="text-success">@ViewData["StatusMessage"]</p>
+    <br />
+    <h2>@ViewData["Title"].</h2>
+    <p class="text-success">@ViewData["StatusMessage"]</p>
 
-<div>
-    <h4>Change your account settings</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>Password:</dt>
-        <dd>
-            @if (Model.HasPassword)
+    <div>
+        <h4>Change your account settings</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>Password:</dt>
+            <dd>
+                @if (Model.HasPassword)
             {
-                <text>[&nbsp;&nbsp;<a asp-controller="Manage" asp-action="ChangePassword">Change</a>&nbsp;&nbsp;]</text>
-            }
-            else
+                    <text>[&nbsp;&nbsp;<a asp-controller="Manage" asp-action="ChangePassword">Change</a>&nbsp;&nbsp;]</text>
+                }
+                else
+                {
+                    <text>[&nbsp;&nbsp;<a asp-controller="Manage" asp-action="SetPassword">Create</a>&nbsp;&nbsp;]</text>
+                }
+            </dd>
+            <ul>
+                @if (ViewData["Admin"].ToString() == "true")
             {
-                <text>[&nbsp;&nbsp;<a asp-controller="Manage" asp-action="SetPassword">Create</a>&nbsp;&nbsp;]</text>
-            }
-        </dd>
-        <ul>
-            @if (ViewData["Admin"].ToString() == "true")
-            {
-                <li><a href="/Products/Index">Manage Products</a></li>
-                <li><a href="/Posts/Index">Manage Posts</a></li>
-                <li><a href="/Roles/Index">Manage Roles</a></li>
-            }
-        </ul>
-    </dl>
+                    <li><a href="/Products/Index">Manage Products</a></li>
+                    <li><a href="/Posts/Index">Manage Posts</a></li>
+                    <li><a href="/Roles/Index">Manage Roles</a></li>
+                }
+            </ul>
+        </dl>
+    </div>
 </div>
