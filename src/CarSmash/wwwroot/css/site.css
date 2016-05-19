@@ -164,6 +164,32 @@ nav {
     width: 39%;
     text-align: right; }
 
+.post-index {
+  width: 90%;
+  /*background-color: red;*/
+  margin: auto; }
+
+.manageParent {
+  display: flex;
+  /*border: solid blue 1px;*/
+  /*.manageChild{*/
+  /*border: solid red 1px;*/
+  justify-content: space-around; }
+  .manageParent h2 {
+    align-content: center; }
+  .manageParent h4 {
+    align-content: center;
+    margin-left: 20px; }
+  .manageParent .passManage {
+    /*display: flex;*/
+    align-content: center;
+    text-align: center; }
+  .manageParent .changePass {
+    text-align: center;
+    align-content: center;
+    margin-right: 40px; }
+
+/*}*/
 html, body {
   display: flex;
   flex-direction: column;
@@ -181,7 +207,6 @@ html, body {
     width: 100%;
     font-family: "PT Sans", sans-serif;
     color: black;
-    background-image: url(../images/smooth3.gif);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;

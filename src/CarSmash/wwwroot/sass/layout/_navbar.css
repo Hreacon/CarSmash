@@ -1,0 +1,33 @@
+﻿nav {
+  background-color: black; }
+
+.nav-wrapper {
+  background-color: #9a9a9a; }
+  .nav-wrapper .user-name {
+    font-size: 1em; }
+  .nav-wrapper .button-collapse {
+    padding-right: 10px; }
+  .nav-wrapper .side-nav {
+    background-color: #7b7b7b; }
+    .nav-wrapper .side-nav ul .large i {
+      display: inline; }
+    .nav-wrapper .side-nav .user-name {
+      font-size: 1em; }
+  .nav-wrapper a {
+    color: #84ffff;
+    text-shadow: 0.3px 0.5px 1px black;
+    font-size: 1.6em; }
+  .nav-wrapper a:hover, .nav-wrapper .navbarHover {
+    color: #18ffff;
+    text-shadow: 0px 0px 3px #f6f6f6;
+    background-color: transparent; }
+  .nav-wrapper i:hover {
+    cursor: pointer;
+    color: color("cyan", "accent-3"); }
+
+.menu-button {
+  position: absolute;
+  top: 5px;
+  right: 60px;
+  z-index: 999; }
+
