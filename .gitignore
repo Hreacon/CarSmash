@@ -10,6 +10,7 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 /src/CarSmash/wwwroot/uploads/*
+/src/CarSmash/wwwroot/images/Thumbs.db
 /src/CarSmash/wwwroot/css/*
 /src/CarSmash/wwwroot/lib/materialize/sass/materialize.css.map
 
