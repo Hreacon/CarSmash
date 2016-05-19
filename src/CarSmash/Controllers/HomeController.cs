@@ -225,7 +225,7 @@ namespace CarSmash.Controllers
             return View();
         }
 
-        public IActionResult CartCount()
+        public IActionResult CartCount(string ajax)
         {
             return Content(_cart.Count.ToString());
         }
