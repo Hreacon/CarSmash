@@ -1,41 +1,40 @@
 ﻿@{
     var product = Model as Product;
 }
-<div class="container ">
+<div class="product-details">
     <div class="row">
-            
-            <div class="product-images col s4">
-                <div class="product-display-image">
-                    <img src="@product.Images.ElementAt(0).Url" />
-                </div>
-                <div class="product-image-list">
-                    @foreach (var image in @product.Images)
-                    {
-                        <img src="@image.Url" />
-                    }
-                </div>
+
+        <div class="product-images col s12 m6 l4">
+            <div class="product-display-image">
+                <img src="@product.Images.ElementAt(0).Url" />
             </div>
-        <div class="product-header col s4">
+            <div class="product-image-list">
+                @foreach (var image in @product.Images)
+            {
+                    <img src="@image.Url" />
+                }
+            </div>
+        </div>
+        <div class="product-header col s12 m6 l4">
             <p>@product.Name</p>
         </div>
-            <div class="product-price col s4">
-                <p>$@product.Price</p>
-                <form asp-action="AddToCart" asp-controller="Home">
-                    <div class="input-field">
-                        <input hidden name="id" value="@product.ProductId" />
-                        <label for="quantity">Quantity</label>
-                        <input type="number" name="quantity" class="quantity-selector" value="@product.Quantity"/>
-                        <a onclick="$(this).parent().parent().submit()" class="ajax btn btn-default" data-target="#content"> Add To Cart</a>
-                    </div>
-                
-                </form>
+        <div class="product-price col s12 m6 l4">
+            <p>$@product.Price</p>
+            <form asp-action="AddToCart" asp-controller="Home">
+                <div class="input-field">
+                    <input hidden name="id" value="@product.ProductId" />
+                    <label for="quantity">Quantity</label>
+                    <input type="number" name="quantity" class="quantity-selector" value="@product.Quantity" />
+                    <a onclick="$(this).parent().parent().submit()" class="btn btn-default"> Add To Cart</a>
+                </div>
 
-               
-            </div>
-       
+            </form>
+
+
+        </div>
+
     </div>
+    <div class="row center">
+        <div class="s12">@product.Description</div>
 </div>
-
-   
-    
 </div>

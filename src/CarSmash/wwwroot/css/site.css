@@ -179,6 +179,11 @@ nav {
 .main-page {
   padding-bottom: 100px; }
 
+.product-details {
+  width: 90%;
+  margin: auto;
+  padding-top: 20px; }
+
 .post-index {
   width: 90%;
   /*background-color: red;*/
