@@ -207,7 +207,7 @@ html, body {
     width: 100%;
     font-family: "PT Sans", sans-serif;
     color: black;
-    background-image: url(../images/smooth3.gif);
+    background: linear-gradient(#6e6e6e, dimgrey, #5f5f5f);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
