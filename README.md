@@ -45,11 +45,6 @@ No known bugs!
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
 ### Deploying
 
 
