@@ -1,6 +1,6 @@
 # CarSmash
 
-This ecommerce template site was built in .NET framework with visual studio 2015. As an admin the user can create objects to be hosted persistently via SQL database as well as link to Youtube videos for further project synergy. Registered users of the site can purchase items using the https://stripe.com/ API, as well as post and make comments on products via facebook and twitter for further brand penetration and sales.
+This ecommerce template site was built in .NET framework with visual studio 2015. As an admin the user can create objects to be hosted persistently via SQL database as well as link to Youtube videos for further project synergy. Registered users of the site can purchase items using the https://stripe.com/ API.
 
 ## Technologies Used
 
