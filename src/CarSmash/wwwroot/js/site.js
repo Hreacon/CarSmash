@@ -1,4 +1,13 @@
-﻿
+﻿Number.prototype.formatMoney = function (c, d, t) {
+    var n = this,
+        c = isNaN(c = Math.abs(c)) ? 2 : c,
+        d = d == undefined ? "." : d,
+        t = t == undefined ? "," : t,
+        s = n < 0 ? "-" : "",
+        i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
+        j = (j = i.length) > 3 ? j % 3 : 0;
+    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+};
 function ajax(href, target) {
     // scalable ajax function. Use html attributes to get the target. Turn everything into an ajax call with a class and a data-target.
     // Also "breakproof". Site works with refreshing and even if there's no javascript.
@@ -138,6 +147,20 @@ $(document)
             edge: 'right',
             closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
         });
+        $("#quant-select")
+            .on('change keyup',
+                function() {
+                    var price = $("#price-per").val();
+                    var quan = $(this).val();
+                    var total = (price * quan);
+                    total.toFixed(2);
+                    $("#price-out").html("$" + total.formatMoney());
+                    console.log(price, quan);
+                });
+            $(".minimg").click(function() {
+                var src = $(this).attr('src');
+                $("#bigimg").attr('src', src);
+            })
 
     });
 

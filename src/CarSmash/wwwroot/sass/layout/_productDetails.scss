@@ -1,22 +1,8 @@
-﻿.product-container{
-    display:flex;
-    justify-content: center;
-    .product-images {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-        .product-price{
-            p{
-                display: flex;
-                justify-content: center;
+﻿
 
-            }
-            
-        }
-
-    .product-display-image {
-        width: 300px;
-    }
+.product-details {
+    width:90%;
+    margin:auto;
+    padding-top:20px;
+    padding-bottom:100px;
 }
-}
-
